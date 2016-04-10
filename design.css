@@ -1,0 +1,18 @@
+
+	
+#game_object
+	{
+		top:1%;
+		width:98%;
+		height:98%;
+		position:absolute;
+		left:1%;
+		right:1%;
+	}
+	
+	#background_canvas,#main_canvas
+	{
+		position:absolute;
+		width:100%;
+		height:100%;
+	}
