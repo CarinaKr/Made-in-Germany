@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+	<head>
+	
+		<link href="design.css" type="text/css" rel="stylesheet">
+		<title>Vorstellung</title>
+		<meta charset=utf-8>
+	</head>
+
+	<body>
+
+		<img src="bilder/Vorstellung.jpg" style='width:100%; height: %'/>
+		
+		
+		<script>
+		
+			var zTasteGedrueckt=false;
+			document.addEventListener("keypress",tasteGedrueckt,false);
+			document.addEventListener("keyup",tasteLosgelassen,false);
+			
+			function tasteGedrueckt(e)
+			{
+				var key_id=e.keyCode || e.which;
+				
+				if(key_id==13&&zTasteGedrueckt==false)
+				{enter();e.preventDefault();}
+				zTasteGedrueckt=true;
+			}
+
+			function tasteLosgelassen(e)
+			{
+				zTasteGedrueckt=false;
+			}
+		
+			function enter()
+			{
+				location.href="Schreibtisch.html";
+			}
+		</script>
+		
+	</body>
+
+</html>
