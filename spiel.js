@@ -1,6 +1,6 @@
 resizeGame();	
 
-var zStressLevel=0.80,zImageLevel=0.80,zWirtschaftlichkeitLevel=0.80,zImage2Level=0.80;
+var zStressLevel,zImageLevel,zWirtschaftlichkeitLevel,zImage2Level;
 var zDocumentOffen=false,zMailOffen=false,zBallOffen=false;
 
 function init()
@@ -21,12 +21,16 @@ function init()
 	zMainCanvas=document.getElementById('main_canvas');
 	zMainCtx=main_canvas.getContext('2d');
 	
+	window.addEventListener("storage",storage,false);
 	//document.addEventListener("click",mausKlick,false);
 	
 	ladeBilder();
 	zeichneBild();
 	restart();
 	//loop();
+	
+	zMailCount=localStorage.getItem("MailCount");
+	sendeMail(16,zMailCount);
 }
 
 function mouse(e)
@@ -37,14 +41,15 @@ function mouse(e)
 
 function restart()
 {
-	for(var i=0;i<5;i++)
+	for(var i=0;i<21;i++)
 	{
-		localStorage.setItem("Alltag"+i,"false");
+		localStorage.setItem("Mail"+i+"gelesen","false");
+		localStorage.setItem("Mail"+i+"beantwortet","false");
 	}
-	for(var j=0;j<16;j++)
-	{
-		localStorage.setItem("Skandal"+j,"false");
-	}
+	localStorage.setItem("StressLevel",zStressLevel);
+	localStorage.setItem("ImageLevel",zImageLevel);
+	localStorage.setItem("WirtschaftlichkeitLevel",zWirtschaftlichkeitLevel);
+	localStorage.setItem("Image2Level",zImage2Level);
 	localStorage.setItem("MailCount",0);
 }
 
@@ -72,7 +77,7 @@ function zeichneBild()
 
 function zeichneBalken()
 {
-	zMainCtx.clearRect(0,0,1335,635);
+	zMainCtx.clearRect(0,0,500,500);
 	zMainCtx.drawImage(zGesamtBild,250,0,100,50,zStressLevelX,zStressLevelY,zStressLevelMax,50);
 	zMainCtx.drawImage(zGesamtBild,250,50,100,50,zStressLevelX,zStressLevelY,zStressLevelMax*zStressLevel,50);
 	zMainCtx.drawImage(zGesamtBild,250,0,100,50,zWirtschaftlichkeitLevelX,zWirtschaftlichkeitLevelY,zWirtschaftlichkeitLevelMax,50);
@@ -122,20 +127,34 @@ function oeffneDocumente()
 function oeffneMail()
 {
 	//zMainCtx.drawImage(zGesamtBild,100,250,95,95,400,100,500,500);
-	 mailwindow = window.open("Mail/Metall-Mail.html", "Mail", "resizable=1, width=800,height=400, scrollbars=1");
-	 mailwindow.moveTo(250,150);
+	 mailwindow = window.open("Mail/Metall-Mail.html", "Mail"); //"resizable=1, width=800,height=400, scrollbars=1"
+	 //mailwindow.moveTo(250,150);
 }
 function oeffneBall()
 {
 	zMainCtx.drawImage(zGesamtBild,250,250,100,100,400,100,500,500);
 }
 
-function sendeMail(pName,pNummer,pMailCount)
+function sendeMail(pNummer,pMailCount)
 {
-	localStorage.setItem("Mail"+pMailCount,pName+pNummer);
-	var MailCount=localStorage.getItem("MailCount");
-	localStorage.setItem("MailCount",MailCount+1);
+	localStorage.setItem("Mail"+pMailCount,pNummer);
+	var newCount=Number(pMailCount)+1;
+	localStorage.setItem("MailCount",newCount);
 }
+
+function storage()
+{
+	zStressLevel=localStorage.getItem("StressLevel");
+	zImageLevel=localStorage.getItem("ImageLevel");
+	zImage2Level=localStorage.getItem("Image2Level");
+	zWirtschaftlichkeitLevel=localStorage("WirtschaftlichkeitLevel");
+	zeichneBalken;
+}
+
+/*function loop()
+{
+	requestaframe(loop);
+}*/
 
 init();
 
