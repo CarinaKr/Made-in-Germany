@@ -24,9 +24,15 @@ function init()
 	window.addEventListener("storage",storage,false);
 	//document.addEventListener("click",mausKlick,false);
 	
+	restart();
+	
+	zStressLevel=localStorage.getItem("StressLevel");
+	zWirtschaftlichkeitLevel=localStorage.getItem("WirtschaftlichkeitLevel");
+	zImageLevel=localStorage.getItem("ImageLevel");
+	zImage2Level=localStorage.getItem("Image2Level");
+	
 	ladeBilder();
 	zeichneBild();
-	restart();
 	//loop();
 	
 	zMailCount=localStorage.getItem("MailCount");
@@ -46,6 +52,10 @@ function restart()
 		localStorage.setItem("Mail"+i+"gelesen","false");
 		localStorage.setItem("Mail"+i+"beantwortet","false");
 	}
+	zStressLevel=0.8;
+	zImageLevel=0.8;
+	zWirtschaftlichkeitLevel=0.8;
+	zImage2Level=0.8;
 	localStorage.setItem("StressLevel",zStressLevel);
 	localStorage.setItem("ImageLevel",zImageLevel);
 	localStorage.setItem("WirtschaftlichkeitLevel",zWirtschaftlichkeitLevel);
@@ -147,8 +157,8 @@ function storage()
 	zStressLevel=localStorage.getItem("StressLevel");
 	zImageLevel=localStorage.getItem("ImageLevel");
 	zImage2Level=localStorage.getItem("Image2Level");
-	zWirtschaftlichkeitLevel=localStorage("WirtschaftlichkeitLevel");
-	zeichneBalken;
+	zWirtschaftlichkeitLevel=localStorage.getItem("WirtschaftlichkeitLevel");
+	zeichneBalken();
 }
 
 /*function loop()

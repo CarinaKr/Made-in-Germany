@@ -1,8 +1,11 @@
 
 var zMailText=new Array(21);
 var zAbsender=new Array(21);
-var zAntwort1=new Array(21);
-var zAntwort2=new Array(21);
+var zAntwort=new Array(30);
+for(var i=0;i<zAntwort.length;i++)
+{
+	zAntwort[i]=new Array(2);
+}
 var zNachfrage=new Array();
 
 zMailText[0]="Skandal1: Nachricht über Fabrik.";
@@ -18,10 +21,10 @@ zMailText[20]="Alltag 5; Presseartikel über neuen Chef extern";
 zAbsender[16]="Aufsichtsrat@mayermetall.de";
 
 
-zAntwort1[16]="Lob";
-zAntwort2[16]="ignorieren";
-zAntwort1[22]="Bonus";
-zAntwort2[22]="freier Tag";
+zAntwort[16][0]="Lob";
+zAntwort[16][1]="ignorieren";
+zAntwort[22][0]="Bonus";
+zAntwort[22][1]="freier Tag";
 
 
 zNachfrage[0]="Bonus an den Abteilungsleiter oder einen freien Tag für alle Mitarbeiter?";

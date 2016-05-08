@@ -19,16 +19,22 @@ function init()
 	
 	zMail=new Array(zMailCount);
 	zMailAbsender=new Array(zMailCount);
+	zAntwortButton=new Array();
 	
 	for(var i=0;i<zMailCount;i++)
-	{zMailAbsender[i]=document.getElementById('mail'+(i+1));}
+	{zMailAbsender[i]=document.getElementById('mail'+i);}
 	zMailAddressat=document.getElementById('adressat');
 	zMailTextFeld=document.getElementById('mail');
 	zMailNachfrageFeld=document.getElementById('nachfrage');
-	zAntwort1Button=document.getElementById('antwort1');
-	zAntwort2Button=document.getElementById('antwort2');
+	for(var j=0;j<2;j++)
+	{zAntwortButton[j]=document.getElementById('antwort'+j);}
 	zGegebeneAntwort1=document.getElementById('gegebeneAntwort1');
 	zGegebeneAntwort2=document.getElementById('gegebeneAntwort2');
+	
+	zStressLevel=localStorage.getItem("StressLevel");
+	zWirtschaftlichkeitLevel=localStorage.getItem("WirtschaftlichkeitLevel");
+	zImageLevel=localStorage.getItem("ImageLevel");
+	zImage2Level=localStorage.getItem("Image2Level");
 	
 	ladeMails();
 }
@@ -51,31 +57,73 @@ function ladeMails()
 
 function zeigeMail(pNummer)
 {
-	zOffeneMail=pNummer;
+	zOffeneMail=zMail[pNummer];
 	zMailAddressat.innerHTML=zAbsender[zMail[pNummer]];
 	zMailTextFeld.innerHTML=zMailText[zMail[pNummer]];
-	zAntwort1Button.innerHTML=zAntwort1[zMail[pNummer]];
-	zAntwort2Button.innerHTML=zAntwort2[zMail[pNummer]];
+	zAntwortButton[0].innerHTML=zAntwort[zMail[pNummer]][0];
+	zAntwortButton[1].innerHTML=zAntwort[zMail[pNummer]][1];
 	
-	if(zAntwort1[zMail[pNummer]]==""||localStorage.getItem("Mail"+zMail[pNummer]+"beantwortet")!="false")
+	if(zAntwort[zMail[pNummer]][0]==""||localStorage.getItem("Mail"+zMail[pNummer]+"beantwortet")!="false")
 	{
-		zAntwort1Button.disabled=true;
-		zAntwort2Button.disabled=true;
+		zAntwortButton[0].disabled=true;
+		zAntwortButton[1].disabled=true;
+		zGegebeneAntwort1.innerHTML=zAntwortButton[Number(localStorage.getItem("Mail"+zMail[pNummer]+"beantwortet"))].innerHTML;
+	}
+	
+	if(zOffeneMail==16)
+	{
+		zMailNachfrageFeld.innerHTML=zNachfrage[0];
+		zGegebeneAntwort2.innerHTML=zAntwort[22][localStorage.getItem("Mail"+22+"beantwortet")];
 	}
 }
 
-function antwort(pNummer)
+function antwort(pAntwort)
 {
-	localStorage.setItem("Mail"+zOffeneMail+"beantwortet",pNummer);
-	
-	if(pNummer==16) //Alltag1
+	localStorage.setItem("Mail"+zOffeneMail+"beantwortet",pAntwort);//antwort speichern
+	var pErsteAntwort=zGegebeneAntwort1.innerHTML;
+	zGegebeneAntwort1.innerHTML=zAntwortButton[pAntwort].innerHTML;
+	if(localStorage.getItem("Mail"+zOffeneMail+"beantwortet")!="false")//Button disable
 	{
-		if(pNummer==1)
+		zAntwortButton[0].disabled=true;
+		zAntwortButton[1].disabled=true;
+	}
+	
+	if(zOffeneMail==16) //Alltag1
+	{
+		zOffeneMail=22;
+		if(pAntwort==0)
 		{
-			zGegebeneAntwort1.innerHTML=zAntwort1Button.innerHTML;
 			zMailNachfrageFeld.innerHTML=zNachfrage[0];
+			zAntwortButton[0].innerHTML=zAntwort1[zOffeneMail];
+			zAntwortButton[1].innerHTML=zAntwort2[zOffeneMail];
+			zAntwortButton[0].disabled=false;
+			zAntwortButton[1].disabled=false;
+		}
+		else if(pAntwort==1)
+		{
+			localStorage.setItem("AbzugImage2",0.03);
 		}
 	}
+	else if(zOffeneMail==22)//Alltag1 nachfrage
+	{
+		zGegebeneAntwort1.innerHTML=pErsteAntwort;
+		zGegebeneAntwort2.innerHTML=zAntwortButton[pAntwort].innerHTML;
+		if(pAntwort==0)
+		{
+			zWirtschaftlichkeitLevel-=0.1;
+		}
+		else if(pAntwort==1)
+		{
+			zWirtschaftlichkeitLevel-=0.05;
+			zImage2Level+=0.1;
+		}
+	}
+	
+	//Level speichern
+	localStorage.setItem("StressLevel",zStressLevel);
+	localStorage.setItem("ImageLevel",zImageLevel);
+	localStorage.setItem("WirtschaftlichkeitLevel",zWirtschaftlichkeitLevel);
+	localStorage.setItem("Image2Level",zImage2Level);
 }
 
 
