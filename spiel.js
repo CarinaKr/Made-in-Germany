@@ -36,7 +36,8 @@ function init()
 	//loop();
 	
 	zMailCount=localStorage.getItem("MailCount");
-	sendeMail(16,zMailCount);
+	starteAlltag();
+	starteSkandal();
 }
 
 function mouse(e)
@@ -47,7 +48,7 @@ function mouse(e)
 
 function restart()
 {
-	for(var i=0;i<21;i++)
+	for(var i=0;i<30;i++)
 	{
 		localStorage.setItem("Mail"+i+"gelesen","false");
 		localStorage.setItem("Mail"+i+"beantwortet","false");
@@ -69,6 +70,8 @@ function ladeBilder()
 	zGesamtBild.src='bilder/gesamt.png';
 	zDeskBild=new Image();
 	zDeskBild.src='bilder/schreibtisch.jpg';
+	zKreisBild=new Image();
+	zKreisBild.src='bilder/kreis.png';
 }
 
 function zeichneBild()
@@ -106,7 +109,7 @@ function zeichneBalken()
 
 function klickIcon(pIcon)
 {
-	if(zDocumentOffen||zMailOffen||zBallOffen)
+	if(zDocumentOffen||zBallOffen)
 	{
 		zMainCtx.clearRect(0,0,1335,635);
 		zHintergrundCtx.clearRect(0,0,1335,635);
@@ -139,17 +142,20 @@ function oeffneMail()
 	//zMainCtx.drawImage(zGesamtBild,100,250,95,95,400,100,500,500);
 	 mailwindow = window.open("Mail/Metall-Mail.html", "Mail"); //"resizable=1, width=800,height=400, scrollbars=1"
 	 //mailwindow.moveTo(250,150);
+	 zMainCtx.clearRect(800,200,100,100);
 }
 function oeffneBall()
 {
 	zMainCtx.drawImage(zGesamtBild,250,250,100,100,400,100,500,500);
 }
 
-function sendeMail(pNummer,pMailCount)
+function sendeMail(pNummer)
 {
-	localStorage.setItem("Mail"+pMailCount,pNummer);
-	var newCount=Number(pMailCount)+1;
+	zMailCount=localStorage.getItem("MailCount");
+	localStorage.setItem("Mail"+zMailCount,pNummer);
+	var newCount=Number(zMailCount)+1;
 	localStorage.setItem("MailCount",newCount);
+	zMainCtx.drawImage(zKreisBild,0,0,100,100,850,220,25,25);
 }
 
 function storage()
@@ -159,6 +165,19 @@ function storage()
 	zImage2Level=localStorage.getItem("Image2Level");
 	zWirtschaftlichkeitLevel=localStorage.getItem("WirtschaftlichkeitLevel");
 	zeichneBalken();
+}
+
+function starteAlltag()
+{
+	zMailCount=localStorage.getItem("MailCount");
+	sendeMail(16);
+	setTimeout(sendeMail,15000,17);
+	setTimeout(sendeMail,30000,18);
+}
+
+function starteSkandal()
+{
+	zMailCount=localStorage.getItem("MailCount");
 }
 
 /*function loop()
