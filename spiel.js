@@ -142,7 +142,7 @@ function oeffneMail()
 	//zMainCtx.drawImage(zGesamtBild,100,250,95,95,400,100,500,500);
 	 mailwindow = window.open("Mail/Metall-Mail.html", "Mail"); //"resizable=1, width=800,height=400, scrollbars=1"
 	 //mailwindow.moveTo(250,150);
-	 zMainCtx.clearRect(800,200,100,100);
+	 zMainCtx.clearRect(480,580,100,100);
 }
 function oeffneBall()
 {
@@ -155,7 +155,7 @@ function sendeMail(pNummer)
 	localStorage.setItem("Mail"+zMailCount,pNummer);
 	var newCount=Number(zMailCount)+1;
 	localStorage.setItem("MailCount",newCount);
-	zMainCtx.drawImage(zKreisBild,0,0,100,100,850,220,25,25);
+	zMainCtx.drawImage(zKreisBild,0,0,100,100,480,580,25,25);
 }
 
 function storage()
