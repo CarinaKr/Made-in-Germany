@@ -49,6 +49,10 @@ function ladeMails()
 	for(var i=0;i<zMail.length;i++)
 	{		
 		zMail[zMail.length-1-i]=Number(localStorage.getItem("Mail"+i));
+		if(localStorage.getItem("Mail"+zMail[zMail.length-1-i]+"gelesen")=="false")
+		{
+			zMailAbsender[zMail.length-1-i].style.fontSize=20+"px";
+		}
 		zMailAbsender[zMail.length-1-i].innerHTML=zAbsender[zMail[zMail.length-1-i]];
 	}
 	zeigeMail(0);
@@ -57,7 +61,6 @@ function ladeMails()
 function zeigeMail(pNummer)
 {
 	zOffeneMail=zMail[pNummer];
-	zMailAddressat.innerHTML=zAbsender[zMail[pNummer]];
 	zMailTextFeld.innerHTML=zMailText[zMail[pNummer]];
 	zGegebeneAntwort1.innerHTML="";
 	zGegebeneAntwort2.innerHTML="";
@@ -71,7 +74,8 @@ function zeigeMail(pNummer)
 	{
 		zAntwortButton[0].disabled=true;
 		zAntwortButton[1].disabled=true;
-		zGegebeneAntwort1.innerHTML=zAntwortButton[Number(localStorage.getItem("Mail"+zMail[pNummer]+"beantwortet"))].innerHTML;
+		if(localStorage.getItem("Mail"+zMail[pNummer]+"beantwortet")!="false")
+		{zGegebeneAntwort1.innerHTML=zAntwortButton[Number(localStorage.getItem("Mail"+zMail[pNummer]+"beantwortet"))].innerHTML;}
 	}
 	
 	if(zOffeneMail==16&&localStorage.getItem("Mail"+16+"beantwortet")!="false")
@@ -79,6 +83,25 @@ function zeigeMail(pNummer)
 		zMailNachfrageFeld.innerHTML=zNachfrage[0];
 		zGegebeneAntwort2.innerHTML=zAntwort[22][localStorage.getItem("Mail"+22+"beantwortet")];
 	}
+	else if(zOffeneMail==0&&localStorage.getItem("Mail"+0+"gelesen")=="false")
+	{
+		zStressLevel-=0.25;
+		zWirtschaftlichkeitLevel-=0.3;
+	}
+	else if(zOffeneMail==1&&localStorage.getItem("Mail"+1+"gelesen")=="false")
+	{
+		zStressLevel-=0.3;
+	}
+	
+	//pruefe ob Mail bereits gelesen wurde und auf gelesen setzen
+	if(localStorage.getItem("Mail"+zOffeneMail+"gelesen")=="false")
+	{
+		localStorage.setItem("Mail"+zOffeneMail+"gelesen","true");
+		zMailAbsender[pNummer].style.fontSize=15+"px";
+	}
+	zMailAddressat.innerHTML=zAbsender[zMail[pNummer]];
+	
+	speichereWerte();
 }
 
 function antwort(pAntwort)
@@ -153,6 +176,12 @@ function antwort(pAntwort)
 		}
 	}
 	
+	//Level speichern
+	speichereWerte();
+}
+
+function speichereWerte()
+{
 	//Level speichern
 	localStorage.setItem("StressLevel",zStressLevel);
 	localStorage.setItem("ImageLevel",zImageLevel);

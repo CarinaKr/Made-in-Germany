@@ -8,7 +8,18 @@ for(var i=0;i<zAntwort.length;i++)
 }
 var zNachfrage=new Array();
 
+zAbsender[0]="PR@mayermetall.de";
+zAbsender[1]="Außendienst@mayermetall.de";
+zAbsender[2]="Zeitung@hamburg.de";
+
+zAbsender[16]="Aufsichtsrat@mayermetall.de";
+zAbsender[17]="HR@mayermetall.de";
+zAbsender[18]="HR@mayermetall.de";
+
+
 zMailText[0]="Skandal1: Nachricht über Fabrik.";
+zMailText[1]="Skandal2: Nachricht über Beteiligung der Firma."
+zMailText[2]="Skandal3: Einladung zum Interview. Stellvertreter schicken oder Persönlich gehen?"
 
 zMailText[16]="Alltag 1; Geschäftsbericht; Lob oder nichts tun?";
 zMailText[17]="Alltag 2; Personalchef Karl Heinz Mutmacher geht zum 1. September in Rente Antwort2 Karl Heinz Mutmacher"+
@@ -18,10 +29,14 @@ zMailText[19]="Alltag 4; Presseartikel über neuen Chef intern";
 zMailText[20]="Alltag 5; Presseartikel über neuen Chef extern";
 
 
-zAbsender[16]="Aufsichtsrat@mayermetall.de";
-zAbsender[17]="HR@mayermetall.de";
-zAbsender[18]="HR@mayermetall.de";
-
+zAntwort[0][0]="";
+zAntwort[0][1]="";
+zAntwort[1][0]="Pressemitteilung";
+zAntwort[1][1]="nichts tun";
+zAntwort[23][0]"Abstreiten";
+zAntwort[23][1]"Sicherheitslücken";
+zAntwort[2][0]="Stellvertreter";
+zAntwort[2][1]="Persönlich";
 
 zAntwort[16][0]="Lob";
 zAntwort[16][1]="ignorieren";
@@ -34,3 +49,4 @@ zAntwort[18][1]="Extern";
 
 
 zNachfrage[0]="Bonus an den Abteilungsleiter oder einen freien Tag für alle Mitarbeiter?";
+zNachfrage[1]="Bedauern ausdrücken aber Beteiligung abstreiten oder Sicherheitslücken zugeben und Hilfe versprechen?"

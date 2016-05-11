@@ -2,6 +2,7 @@ resizeGame();
 
 var zStressLevel,zImageLevel,zWirtschaftlichkeitLevel,zImage2Level;
 var zDocumentOffen=false,zMailOffen=false,zBallOffen=false;
+var zZeiteinheit;
 
 function init()
 {
@@ -35,6 +36,7 @@ function init()
 	zeichneBild();
 	//loop();
 	
+	zZeiteinheit=30000;
 	zMailCount=localStorage.getItem("MailCount");
 	starteAlltag();
 	starteSkandal();
@@ -53,10 +55,10 @@ function restart()
 		localStorage.setItem("Mail"+i+"gelesen","false");
 		localStorage.setItem("Mail"+i+"beantwortet","false");
 	}
-	zStressLevel=0.8;
-	zImageLevel=0.8;
-	zWirtschaftlichkeitLevel=0.8;
-	zImage2Level=0.8;
+	zStressLevel=1;
+	zImageLevel=1;
+	zWirtschaftlichkeitLevel=1;
+	zImage2Level=1;
 	localStorage.setItem("StressLevel",zStressLevel);
 	localStorage.setItem("ImageLevel",zImageLevel);
 	localStorage.setItem("WirtschaftlichkeitLevel",zWirtschaftlichkeitLevel);
@@ -171,13 +173,14 @@ function starteAlltag()
 {
 	zMailCount=localStorage.getItem("MailCount");
 	sendeMail(16);
-	setTimeout(sendeMail,15000,17);
-	setTimeout(sendeMail,30000,18);
+	setTimeout(sendeMail,zZeiteinheit,17);
+	setTimeout(sendeMail,zZeiteinheit*3,18);
 }
 
 function starteSkandal()
 {
 	zMailCount=localStorage.getItem("MailCount");
+	setTimeout(sendeMail,zZeiteinheit*2,0);
 }
 
 /*function loop()
