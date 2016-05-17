@@ -38,8 +38,10 @@ function init()
 	
 	zZeiteinheit=30000;
 	zMailCount=localStorage.getItem("MailCount");
-	starteAlltag();
+	//starteAlltag();
 	starteSkandal();
+	//sendeDokument(19);
+	//sendeDokument(20);
 }
 
 function mouse(e)
@@ -54,6 +56,8 @@ function restart()
 	{
 		localStorage.setItem("Mail"+i+"gelesen","false");
 		localStorage.setItem("Mail"+i+"beantwortet","false");
+		localStorage.setItem("Dokument"+i+"gelesen","false");
+		localStorage.setItem("Dokument"+i+"beantwortet","false");
 	}
 	zStressLevel=1;
 	zImageLevel=1;
@@ -64,6 +68,7 @@ function restart()
 	localStorage.setItem("WirtschaftlichkeitLevel",zWirtschaftlichkeitLevel);
 	localStorage.setItem("Image2Level",zImage2Level);
 	localStorage.setItem("MailCount",0);
+	localStorage.setItem("DokumentCount",0);
 	localStorage.setItem("Position",0);
 }
 
@@ -112,14 +117,7 @@ function zeichneBalken()
 
 function klickIcon(pIcon)
 {
-	if(zDocumentOffen||zBallOffen)
-	{
-		zMainCtx.clearRect(0,0,1335,635);
-		zHintergrundCtx.clearRect(0,0,1335,635);
-		zeichneBild();
-		zDocumentOffen=false;zMailOffen=false,zBallOffen=false;
-	}
-	else if(pIcon==1)
+	if(pIcon==1)
 	{
 		oeffneMail();
 		zMailOffen=true;
@@ -138,7 +136,9 @@ function klickIcon(pIcon)
 
 function oeffneDocumente()
 {
-	zMainCtx.drawImage(zGesamtBild,0,250,82,100,400,100,450,500);
+	//zMainCtx.drawImage(zGesamtBild,0,250,82,100,400,100,450,500);
+	 dokumentwindow = window.open("Mail/Dokumente.html", "Dokumente");
+	 zMainCtx.clearRect(420,380,100,100);
 }
 function oeffneMail()
 {
@@ -159,6 +159,15 @@ function sendeMail(pNummer)
 	var newCount=Number(zMailCount)+1;
 	localStorage.setItem("MailCount",newCount);
 	zMainCtx.drawImage(zKreisBild,0,0,100,100,480,580,25,25);
+}
+
+function sendeDokument(pNummer)
+{
+	zDokumentCount=localStorage.getItem("DokumentCount");
+	localStorage.setItem("Dokument"+zDokumentCount,pNummer);
+	var newCount=Number(zDokumentCount)+1;
+	localStorage.setItem("DokumentCount",newCount);
+	zMainCtx.drawImage(zKreisBild,0,0,100,100,420,380,25,25);
 }
 
 function storage(e)
@@ -195,7 +204,27 @@ function starteSkandal()
 
 function pruefePosition(pPosition)
 {
-	
+	if(pPosition==5)
+	{
+		setTimeout(sendeMail,zZeiteinheit,5);
+	}
+	else if(pPosition==6)
+	{
+		setTimeout(sendeMail,zZeiteinheit,6);
+	}
+	else if(pPosition==7)
+	{
+		setTimeout(sendeDokument,zZeiteinheit,7);
+		setTimeout(sendeMail,zZeiteinheit*2,8);
+	}
+	else if(pPosition==22)
+	{
+		restart();
+		mailwindow.close();
+		dokumentwindow.close();
+		zMainCtx.fillStyle="red";zMainCtx.font="30px Arial";zMainCtx.textBaseLine="bottom";
+		zMainCtx.fillText("Game Over",500,500);
+	}
 }
 
 /*function loop()

@@ -225,7 +225,7 @@ function antwort(pAntwort)
 			zImageLevel-=0.1;
 			zImage2Level-=0.1;
 			zStressLevel+=0.05;
-			localStorage.setItem("Position",6);
+			localStorage.setItem("Position",5);
 		}
 		else if(pAntwort==1)
 		{
@@ -234,6 +234,39 @@ function antwort(pAntwort)
 			zStressLevel-=0.3;
 			zWirtschaftlichkeitLevel-=0.2;
 			localStorage.setItem("Position",3);
+		}
+	}
+	
+	else if (zOffeneMail==5)//Skandal6
+	{
+		if(pAntwort==0)
+		{
+			zStressLevel-=0.25;
+			localStorage.setItem("Position",6);
+		}
+		else if(pAntwort==1)
+		{
+			localStorage.setItem("Position",14);
+		}
+	}
+	
+	else if(zOffeneMail==6)//Skandal7
+	{
+		if(pAntwort==0)
+		{
+			localStorage.setItem("Position",7);
+		}
+		else if(pAntwort==1)
+		{
+			localStorage.setItem("Position",9);
+		}
+	}
+	
+	else if(zOffeneMail==8)//Skandal9
+	{
+		if(pAntwort==0)
+		{
+			localStorage.setItem("Position",22);
 		}
 	}
 	
