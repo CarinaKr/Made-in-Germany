@@ -18,8 +18,8 @@ zAbsender[18]="HR@mayermetall.de";
 
 
 zMailText[0]="Skandal1: Nachricht über Fabrik.";
-zMailText[1]="Skandal2: Nachricht über Beteiligung der Firma."
-zMailText[2]="Skandal3: Einladung zum Interview. Stellvertreter schicken oder Persönlich gehen?"
+zMailText[1]="Skandal2: Nachricht über Beteiligung der Firma. Pressemitteilung veröffentlichen oder Nachricht ignorieren";
+zMailText[2]="Skandal3: Einladung zum Interview. Stellvertreter schicken oder Persönlich gehen?";
 
 zMailText[16]="Alltag 1; Geschäftsbericht; Lob oder nichts tun?";
 zMailText[17]="Alltag 2; Personalchef Karl Heinz Mutmacher geht zum 1. September in Rente Antwort2 Karl Heinz Mutmacher"+
@@ -33,8 +33,8 @@ zAntwort[0][0]="";
 zAntwort[0][1]="";
 zAntwort[1][0]="Pressemitteilung";
 zAntwort[1][1]="nichts tun";
-zAntwort[23][0]"Abstreiten";
-zAntwort[23][1]"Sicherheitslücken";
+zAntwort[23][0]="Abstreiten";
+zAntwort[23][1]="Sicherheitslücken";
 zAntwort[2][0]="Stellvertreter";
 zAntwort[2][1]="Persönlich";
 

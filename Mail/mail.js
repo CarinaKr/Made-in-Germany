@@ -78,19 +78,47 @@ function zeigeMail(pNummer)
 		{zGegebeneAntwort1.innerHTML=zAntwortButton[Number(localStorage.getItem("Mail"+zMail[pNummer]+"beantwortet"))].innerHTML;}
 	}
 	
-	if(zOffeneMail==16&&localStorage.getItem("Mail"+16+"beantwortet")!="false")
+	if(zOffeneMail==16&&localStorage.getItem("Mail"+16+"beantwortet")!="false")//Alltag1
 	{
-		zMailNachfrageFeld.innerHTML=zNachfrage[0];
-		zGegebeneAntwort2.innerHTML=zAntwort[22][localStorage.getItem("Mail"+22+"beantwortet")];
+		if(localStorage.getItem("Mail"+22+"beantwortet")=="false")//Nachfrage nicht beantwortet
+		{
+			zOffeneMail=22;
+			zMailNachfrageFeld.innerHTML=zNachfrage[0];
+			zAntwortButton[0].innerHTML=zAntwort[zOffeneMail][0];
+			zAntwortButton[1].innerHTML=zAntwort[zOffeneMail][1];
+			zAntwortButton[0].disabled=false;
+			zAntwortButton[1].disabled=false;
+		}
+		else if(localStorage.getItem("Mail"+22+"beantwortet")!="false")//Nachfrage auch beantwortet
+		{
+			zMailNachfrageFeld.innerHTML=zNachfrage[0];
+			zGegebeneAntwort2.innerHTML=zAntwort[22][localStorage.getItem("Mail"+22+"beantwortet")];
+		}
 	}
-	else if(zOffeneMail==0&&localStorage.getItem("Mail"+0+"gelesen")=="false")
+	else if(zOffeneMail==0&&localStorage.getItem("Mail"+0+"gelesen")=="false")//Skandal1
 	{
 		zStressLevel-=0.25;
 		zWirtschaftlichkeitLevel-=0.3;
 	}
-	else if(zOffeneMail==1&&localStorage.getItem("Mail"+1+"gelesen")=="false")
+	else if(zOffeneMail==1)//Skandal2 
 	{
-		zStressLevel-=0.3;
+		if(localStorage.getItem("Mail"+1+"gelesen")=="false") //noch nicht gelesen
+		{zStressLevel-=0.3;}
+		if(localStorage.getItem("Mail"+1+"beantwortet")!="false"
+			&&localStorage.getItem("Mail"+23+"beantwortet")=="false")// Nachfrage nicht beantwortet
+		{
+			zOffeneMail=23;
+			zMailNachfrageFeld.innerHTML=zNachfrage[1];
+			zAntwortButton[0].innerHTML=zAntwort[zOffeneMail][0];
+			zAntwortButton[1].innerHTML=zAntwort[zOffeneMail][1];
+			zAntwortButton[0].disabled=false;
+			zAntwortButton[1].disabled=false;
+		}
+		else if(localStorage.getItem("Mail"+23+"beantwortet")!="false")//Nachfrage auch beantwortet
+		{
+			zMailNachfrageFeld.innerHTML=zNachfrage[1];
+			zGegebeneAntwort2.innerHTML=zAntwort[23][localStorage.getItem("Mail"+23+"beantwortet")];
+		}
 	}
 	
 	//pruefe ob Mail bereits gelesen wurde und auf gelesen setzen
@@ -173,6 +201,39 @@ function antwort(pAntwort)
 		{
 			zImage2Level-=0.05;
 			zWirtschaftlichkeitLevel+=0.1;
+		}
+	}
+	
+	else if(zOffeneMail==1)//Skandal2 
+	{
+		zOffeneMail=23;
+		if(pAntwort==0)
+		{
+			zMailNachfrageFeld.innerHTML=zNachfrage[1];
+			zAntwortButton[0].innerHTML=zAntwort[zOffeneMail][0];
+			zAntwortButton[1].innerHTML=zAntwort[zOffeneMail][1];
+			zAntwortButton[0].disabled=false;
+			zAntwortButton[1].disabled=false;
+		}
+	}
+	else if(zOffeneMail==23)//Skandal2 Nachfrage
+	{
+		zGegebeneAntwort1.innerHTML=pErsteAntwort;
+		zGegebeneAntwort2.innerHTML=zAntwortButton[pAntwort].innerHTML;
+		if(pAntwort==0)
+		{
+			zImageLevel-=0.1;
+			zImage2Level-=0.1;
+			zStressLevel+=0.05;
+			localStorage.setItem("Position",6);
+		}
+		else if(pAntwort==1)
+		{
+			zImageLevel-=0.5;
+			zImage2Level-=0.25;
+			zStressLevel-=0.3;
+			zWirtschaftlichkeitLevel-=0.2;
+			localStorage.setItem("Position",3);
 		}
 	}
 	

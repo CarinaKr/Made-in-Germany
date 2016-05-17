@@ -64,6 +64,7 @@ function restart()
 	localStorage.setItem("WirtschaftlichkeitLevel",zWirtschaftlichkeitLevel);
 	localStorage.setItem("Image2Level",zImage2Level);
 	localStorage.setItem("MailCount",0);
+	localStorage.setItem("Position",0);
 }
 
 function ladeBilder()
@@ -160,13 +161,21 @@ function sendeMail(pNummer)
 	zMainCtx.drawImage(zKreisBild,0,0,100,100,480,580,25,25);
 }
 
-function storage()
+function storage(e)
 {
+	var i=e.key;
+	var j=e.newValue;
+	
 	zStressLevel=localStorage.getItem("StressLevel");
 	zImageLevel=localStorage.getItem("ImageLevel");
 	zImage2Level=localStorage.getItem("Image2Level");
 	zWirtschaftlichkeitLevel=localStorage.getItem("WirtschaftlichkeitLevel");
 	zeichneBalken();
+	
+	if(i=="Position")
+	{
+		pruefePosition(Number(j));
+	}
 }
 
 function starteAlltag()
@@ -181,6 +190,12 @@ function starteSkandal()
 {
 	zMailCount=localStorage.getItem("MailCount");
 	setTimeout(sendeMail,zZeiteinheit*2,0);
+	setTimeout(sendeMail,zZeiteinheit*4,1);
+}
+
+function pruefePosition(pPosition)
+{
+	
 }
 
 /*function loop()
