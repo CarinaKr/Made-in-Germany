@@ -17,6 +17,7 @@ zAbsender[6]="PR@mayermetall.de";
 
 zAbsender[8]="HR@mayermetall.de";
 
+zAbsender[15]="Aufsichtsrat@mayermetall.de";
 zAbsender[16]="Aufsichtsrat@mayermetall.de";
 zAbsender[17]="HR@mayermetall.de";
 zAbsender[18]="HR@mayermetall.de";
@@ -31,6 +32,7 @@ zMailText[6]="Skandal7: Welche Version soll im Interview dargestellt werden? Bet
 // 7 ist ein Dokument
 zMailText[8]="Skandal9: Rücktritt?";
 
+zMailText[15]="Skandal 16: Demo vor dem Büro von Aktivisten.";
 zMailText[16]="Alltag 1; Geschäftsbericht; Lob oder nichts tun?";
 zMailText[17]="Alltag 2; Personalchef Karl Heinz Mutmacher geht zum 1. September in Rente Antwort2 Karl Heinz Mutmacher"+
 			"geht in Rente Abschiedsfeier Freitag 15.30h im Foyer Antwort1 Grußkarte an Karl Heinz Mutmacher schicken ";
@@ -55,6 +57,9 @@ zAntwort[6][1]="Abstreiten";
 //7 ist Dokument
 zAntwort[8][0]="Ja";
 zAntwort[8][1]="Nein";
+
+zAntwort[15][0]="";
+zAntwort[15][1]="";
 
 zAntwort[16][0]="Lob";
 zAntwort[16][1]="ignorieren";

@@ -120,6 +120,14 @@ function zeigeMail(pNummer)
 			zGegebeneAntwort2.innerHTML=zAntwort[23][localStorage.getItem("Mail"+23+"beantwortet")];
 		}
 	}
+	else if(zOffeneMail==15&&localStorage.getItem("Mail"+15+"gelesen")=="false")//Skandal 16
+	{
+		zStressLevel-=zStressLevel*0.5;
+		zImage2Level-=zImage2Level*0.5;
+		zImageLevel-=zImageLevel*0.5;
+		zWirtschaftlichkeitLevel-=zWirtschaftlichkeitLevel*0.5;
+		localStorage.setItem("Position",8);
+	}
 	
 	//pruefe ob Mail bereits gelesen wurde und auf gelesen setzen
 	if(localStorage.getItem("Mail"+zOffeneMail+"gelesen")=="false")

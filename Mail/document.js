@@ -74,6 +74,18 @@ function zeigeDokument(pNummer)
 		zImageLevel-=0.55;
 		zWirtschaftlichkeitLevel-=0.25;
 	}
+	else if(zOffeneDokument==9&&localStorage.getItem("Dokument"+9+"gelesen")=="false")//Skandal10
+	{
+		zStressLevel-=0.05;
+		zImage2Level-=0.05;
+		zImageLevel-=0.05;
+	}
+	else if(zOffeneDokument==14&&localStorage.getItem("Dokument"+14+"gelesen")=="false")//Skandal10
+	{
+		zStressLevel-=0.25;
+		zImageLevel-=0.7;
+		zImage2Level-=0.4;
+	}
 	
 	//pruefe ob Mail bereits gelesen wurde und auf gelesen setzen
 	if(localStorage.getItem("Dokument"+zOffeneDokument+"gelesen")=="false")

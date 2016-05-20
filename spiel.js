@@ -217,9 +217,24 @@ function pruefePosition(pPosition)
 		setTimeout(sendeDokument,zZeiteinheit,7);
 		setTimeout(sendeMail,zZeiteinheit*2,8);
 	}
+	else if(pPosition==8)//Vor Rücktritt
+	{
+		setTimeout(sendeMail,zZeiteinheit,8);
+	}
+	else if(pPosition==9)
+	{
+		setTimeout(sendeDokument,zZeiteinheit,9);
+		localStorage.setItem("Position",14);
+	}
+	else if(pPosition==14)
+	{
+		setTimeout(sendeDokument,zZeiteinheit,14);
+		setTimeout(sendeMail,zZeiteinheit*2,15);
+		setTimeout(sendeMail,zZeiteinheit*3,8);
+	}
 	else if(pPosition==22)
 	{
-		restart();
+		//restart();
 		mailwindow.close();
 		dokumentwindow.close();
 		zMainCtx.fillStyle="red";zMainCtx.font="30px Arial";zMainCtx.textBaseLine="bottom";
