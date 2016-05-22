@@ -16,7 +16,8 @@ zAbsender[5]="Zeitung@hamburg.de";
 zAbsender[6]="PR@mayermetall.de";
 
 zAbsender[8]="HR@mayermetall.de";
-
+zAbsender[10]="Zeitung@hamburg.de";
+zAbsender[11]=zAbsender[6];
 zAbsender[15]="Aufsichtsrat@mayermetall.de";
 zAbsender[16]="Aufsichtsrat@mayermetall.de";
 zAbsender[17]="HR@mayermetall.de";
@@ -31,6 +32,9 @@ zMailText[5]="Skandal6: Einladung zum Interview. Annehmen oder Absagen?";
 zMailText[6]="Skandal7: Welche Version soll im Interview dargestellt werden? Beteiligung Zugeben oder Abstreiten?";
 // 7 ist ein Dokument
 zMailText[8]="Skandal9: Rücktritt?";
+
+zMailText[10]="Skandal11: Einladung zum Interview. Annehmen oder Absagen?";
+zMailText[11]=zMailText[6];
 
 zMailText[15]="Skandal 16: Demo vor dem Büro von Aktivisten.";
 zMailText[16]="Alltag 1; Geschäftsbericht; Lob oder nichts tun?";
@@ -57,6 +61,11 @@ zAntwort[6][1]="Abstreiten";
 //7 ist Dokument
 zAntwort[8][0]="Ja";
 zAntwort[8][1]="Nein";
+
+zAntwort[10][0]="Annehmen";
+zAntwort[10][1]="Absagen";
+zAntwort[11][0]=zAntwort[6][0];
+zAntwort[11][1]=zAntwort[6][1];
 
 zAntwort[15][0]="";
 zAntwort[15][1]="";

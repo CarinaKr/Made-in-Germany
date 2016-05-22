@@ -3,6 +3,7 @@ resizeGame();
 var zStressLevel,zImageLevel,zWirtschaftlichkeitLevel,zImage2Level;
 var zDocumentOffen=false,zMailOffen=false,zBallOffen=false;
 var zZeiteinheit;
+var zBallZaehler=0;
 
 function init()
 {
@@ -21,27 +22,26 @@ function init()
 	zHintergrundCtx=background_canvas.getContext('2d');
 	zMainCanvas=document.getElementById('main_canvas');
 	zMainCtx=main_canvas.getContext('2d');
+	zBall=document.getElementById('ball');
 	
 	window.addEventListener("storage",storage,false);
 	//document.addEventListener("click",mausKlick,false);
 	
 	restart();
 	
-	zStressLevel=localStorage.getItem("StressLevel");
-	zWirtschaftlichkeitLevel=localStorage.getItem("WirtschaftlichkeitLevel");
-	zImageLevel=localStorage.getItem("ImageLevel");
-	zImage2Level=localStorage.getItem("Image2Level");
+	zStressLevel=Number(localStorage.getItem("StressLevel"));
+	zWirtschaftlichkeitLevel=Number(localStorage.getItem("WirtschaftlichkeitLevel"));
+	zImageLevel=Number(localStorage.getItem("ImageLevel"));
+	zImage2Level=Number(localStorage.getItem("Image2Level"));
 	
 	ladeBilder();
 	zeichneBild();
-	//loop();
+	loop();
 	
 	zZeiteinheit=30000;
-	zMailCount=localStorage.getItem("MailCount");
-	//starteAlltag();
+	zMailCount=Number(localStorage.getItem("MailCount"));
+	starteAlltag();
 	starteSkandal();
-	//sendeDokument(19);
-	//sendeDokument(20);
 }
 
 function mouse(e)
@@ -98,6 +98,7 @@ function zeichneBild()
 
 function zeichneBalken()
 {
+	pruefeLevel();
 	zMainCtx.clearRect(0,0,500,500);
 	zMainCtx.drawImage(zGesamtBild,250,0,100,50,zStressLevelX,zStressLevelY,zStressLevelMax,50);
 	zMainCtx.drawImage(zGesamtBild,250,50,100,50,zStressLevelX,zStressLevelY,zStressLevelMax*zStressLevel,50);
@@ -114,6 +115,106 @@ function zeichneBalken()
 	zMainCtx.fillText("Wirtschaftlichkeit",zWirtschaftlichkeitLevelX+10,zWirtschaftlichkeitLevelY+30);
 }
 
+function pruefeLevel()
+{
+	if(zStressLevel<0)
+	{
+		zStressLevel=0;
+	}
+	else if(zStressLevel>1)
+	{
+		zStressLevel=1.0;
+	}
+	if(zStressLevel>0.75)
+	{
+		//zStressLevelX=;
+		//zStressLevelY=;
+	}
+	else if(zStressLevel<0.25)
+	{
+		//zStressLevelX=;
+		//zStressLevelY=;
+	}
+	else
+	{
+		//zStressLevelX=;
+		//zStressLevelY=;
+	}
+	
+	if(zImageLevel<0)
+	{
+		zImageLevel=0;
+	}
+	else if(zImageLevel>1)
+	{
+		zImageLevel=1.0;
+	}
+	if(zImageLevel>0.75)
+	{
+		//zImageLevelX=;
+		//zImageLevelY=;
+	}
+	else if(zImageLevel<0.25)
+	{
+		//zImageLevelX=;
+		//zImageLevelY=;
+	}
+	else
+	{
+		//zImageLevelX=;
+		//zImageLevelY=;
+	}
+	
+	if(zWirtschaftlichkeitLevel<0)
+	{
+		zWirtschaftlichkeitLevel=0;
+	}
+	else if(zWirtschaftlichkeitLevel>1)
+	{
+		zWirtschaftlichkeitLevel=1.0;
+	}
+	if(zWirtschaftlichkeitLevel>0.75)
+	{
+		//zWirtschaftlichkeitLevelX=;
+		//zWirtschaftlichkeitLevelY=;
+	}
+	else if(zWirtschaftlichkeitLevel<0.25)
+	{
+		//zWirtschaftlichkeitLevelX=;
+		//zWirtschaftlichkeitLevelY=;
+	}
+	else
+	{
+		//zWirtschaftlichkeitLevelX=;
+		//zWirtschaftlichkeitLevelY=;
+	}
+	
+	if(zImage2Level<0)
+	{
+		zImage2Level=0;
+	}
+	else if(zImage2Level>1)
+	{
+		zImage2Level=1.0;
+	}
+	if(zImage2Level>0.75)
+	{
+		//zImage2LevelX=;
+		//zImage2LevelY=;
+	}
+	else if(zImage2Level<0.25)
+	{
+		//zImage2LevelX=;
+		//zImage2LevelY=;
+	}
+	else
+	{
+		//zImage2LevelX=;
+		//zImage2LevelY=;
+	}
+	
+	speichereWerte();
+}
 
 function klickIcon(pIcon)
 {
@@ -136,20 +237,30 @@ function klickIcon(pIcon)
 
 function oeffneDocumente()
 {
-	//zMainCtx.drawImage(zGesamtBild,0,250,82,100,400,100,450,500);
 	 dokumentwindow = window.open("Mail/Dokumente.html", "Dokumente");
 	 zMainCtx.clearRect(420,380,100,100);
 }
 function oeffneMail()
 {
-	//zMainCtx.drawImage(zGesamtBild,100,250,95,95,400,100,500,500);
 	 mailwindow = window.open("Mail/Metall-Mail.html", "Mail"); //"resizable=1, width=800,height=400, scrollbars=1"
 	 //mailwindow.moveTo(250,150);
 	 zMainCtx.clearRect(480,580,100,100);
 }
 function oeffneBall()
 {
-	zMainCtx.drawImage(zGesamtBild,250,250,100,100,400,100,500,500);
+	for(var i=0;i<4;i++)
+	{
+		if(zBallZaehler==i)
+		{
+			if(zBallZaehler==3)
+			{zBallZaehler=0;zStressLevel+=0.01;speichereWerte();}
+			else
+			{zBallZaehler++;}
+			zBall.src="bilder/Stressball_"+zBallZaehler+".png";
+			break;
+		}
+	}
+	speichereWerte();
 }
 
 function sendeMail(pNummer)
@@ -175,10 +286,10 @@ function storage(e)
 	var i=e.key;
 	var j=e.newValue;
 	
-	zStressLevel=localStorage.getItem("StressLevel");
-	zImageLevel=localStorage.getItem("ImageLevel");
-	zImage2Level=localStorage.getItem("Image2Level");
-	zWirtschaftlichkeitLevel=localStorage.getItem("WirtschaftlichkeitLevel");
+	zStressLevel=Number(localStorage.getItem("StressLevel"));
+	zImageLevel=Number(localStorage.getItem("ImageLevel"));
+	zImage2Level=Number(localStorage.getItem("Image2Level"));
+	zWirtschaftlichkeitLevel=Number(localStorage.getItem("WirtschaftlichkeitLevel"));
 	zeichneBalken();
 	
 	if(i=="Position")
@@ -204,7 +315,19 @@ function starteSkandal()
 
 function pruefePosition(pPosition)
 {
-	if(pPosition==5)
+	if(pPosition==2)
+	{
+		setTimeout(sendeMail,zZeiteinheit,2);
+	}
+	else if(pPosition==3)
+	{
+		setTimeout(sendeDokument,zZeiteinheit,3);
+	}
+	else if(pPosition==4)
+	{
+		setTimeout(sendeDokument,zZeiteinheit,4);
+	}
+	else if(pPosition==5)
 	{
 		setTimeout(sendeMail,zZeiteinheit,5);
 	}
@@ -226,6 +349,23 @@ function pruefePosition(pPosition)
 		setTimeout(sendeDokument,zZeiteinheit,9);
 		localStorage.setItem("Position",14);
 	}
+	else if(pPosition==10)
+	{
+		setTimeout(sendeMail,zZeiteinheit*2,10);
+	}
+	else if(pPosition==11)
+	{
+		setTimeout(sendeMail,zZeiteinheit,11);
+	}
+	else if(pPosition==12)
+	{
+		setTimeout(sendeDokument,zZeiteinheit,12);
+	}
+	else if(pPosition==13)
+	{
+		setTimeout(sendeDokument,zZeiteinheit,13);
+		localStorage.setItem("Position",14);
+	}
 	else if(pPosition==14)
 	{
 		setTimeout(sendeDokument,zZeiteinheit,14);
@@ -242,10 +382,65 @@ function pruefePosition(pPosition)
 	}
 }
 
-/*function loop()
+function speichereWerte()
 {
-	requestaframe(loop);
-}*/
+	localStorage.setItem("StressLevel",zStressLevel);
+	localStorage.setItem("ImageLevel",zImageLevel);
+	localStorage.setItem("WirtschaftlichkeitLevel",zWirtschaftlichkeitLevel);
+	localStorage.setItem("Image2Level",zImage2Level);
+}
+
+function loop()
+{	
+	if(zStressLevel<=0||zImage2Level<=0||zImageLevel<=0||zWirtschaftlichkeitLevel<=0)
+	{
+		localStorage.setItem("Position",8); //Anfrage nach Rücktritt
+	}
+	
+	if(zStressLevel>0.75)
+	{
+		zImage2Level+=0.01;
+	}
+	else if(zStressLevel<0.25)
+	{
+		zImage2Level-=0.01;
+	}
+	
+	if(zImageLevel>0.75)
+	{
+		zWirtschaftlichkeitLevel+=0.01;
+		zImage2Level+=0.01;
+		zStressLevel+=0.01;
+	}
+	else if(zImageLevel<0.25)
+	{
+		zWirtschaftlichkeitLevel-=0.1;
+		zImage2Level-=0.01;
+		zStressLevel-=0.01;
+	}
+	
+	if(zWirtschaftlichkeitLevel>0.75)
+	{
+		zStressLevel+=0.01;
+	}
+	else if(zWirtschaftlichkeitLevel<0.25)
+	{
+		zStressLevel-=0.01;
+	}
+	
+	if(zImage2Level>0.75)
+	{
+		zWirtschaftlichkeitLevel+=0.01;
+	}
+	else if(zImage2Level<0.25)
+	{
+		zWirtschaftlichkeitLevel-=0.01;
+	}
+	
+	speichereWerte();
+	zeichneBalken();
+	setTimeout(loop,zZeiteinheit);
+}
 
 init();
 

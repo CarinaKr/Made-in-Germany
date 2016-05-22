@@ -223,6 +223,10 @@ function antwort(pAntwort)
 			zAntwortButton[0].disabled=false;
 			zAntwortButton[1].disabled=false;
 		}
+		else if(pAntwort==1)
+		{
+			localStorage.setItem("Position",10);
+		}
 	}
 	else if(zOffeneMail==23)//Skandal2 Nachfrage
 	{
@@ -241,7 +245,20 @@ function antwort(pAntwort)
 			zImage2Level-=0.25;
 			zStressLevel-=0.3;
 			zWirtschaftlichkeitLevel-=0.2;
+			localStorage.setItem("Position",2);
+		}
+	}
+	else if(zOffeneMail==2)//Skandal 3
+	{
+		if(pAntwort==0)
+		{
+			zStressLevel+=0.05;
 			localStorage.setItem("Position",3);
+		}
+		else if(pAntwort==1)
+		{
+			zStressLevel-=0.05;
+			localStorage.setItem("Position",4);
 		}
 	}
 	
@@ -277,6 +294,31 @@ function antwort(pAntwort)
 			localStorage.setItem("Position",22);
 		}
 	}
+	
+	else if(zOffeneMail==10)//Skandal 11
+	{
+		if(pAntwort==0)
+		{
+			zStressLevel-=0.15;
+			localStorage.setItem("Position",11);
+		}
+		else if(pAntwort==1)
+		{
+			localStorage.setItem("Position",14);
+		}
+	}
+	else if(zOffeneMail==11)//Skandal 12
+	{
+		if(pAntwort==0)
+		{
+			localStorage.setItem("Position",12);
+		}
+		else if(pAntwort==1)
+		{
+			localStorage.setItem("Position",13);
+		}
+	}
+	
 	
 	//Level speichern
 	speichereWerte();

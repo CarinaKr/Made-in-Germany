@@ -67,6 +67,18 @@ function zeigeDokument(pNummer)
 		zImageLevel+=0.1;
 		zWirtschaftlichkeitLevel+=0.1;
 	}
+	else if(zOffeneDokument==3&&localStorage.getItem("Dokument"+3+"gelesen")=="false")//Skandal4
+	{
+		zStressLevel+=0.3;
+		zImage2Level+=0.05;
+		zImageLevel+=0.2;
+	}
+	else if(zOffeneDokument==4&&localStorage.getItem("Dokument"+4+"gelesen")=="false")//Skandal5
+	{
+		zStressLevel+=0.5;
+		zImage2Level+=0.15;
+		zImageLevel+=0.3;
+	}
 	else if(zOffeneDokument==7&&localStorage.getItem("Dokument"+7+"gelesen")=="false")//Skandal8
 	{
 		zStressLevel-=0.15;
@@ -80,7 +92,20 @@ function zeigeDokument(pNummer)
 		zImage2Level-=0.05;
 		zImageLevel-=0.05;
 	}
-	else if(zOffeneDokument==14&&localStorage.getItem("Dokument"+14+"gelesen")=="false")//Skandal10
+	else if(zOffeneDokument==12&&localStorage.getItem("Dokument"+12+"gelesen")=="false")//Skandal13
+	{
+		zStressLevel-=0.2;
+		zImage2Level-=0.25;
+		zImageLevel-=0.6;
+		zWirtschaftlichkeitLevel-=0.25;
+	}
+	else if(zOffeneDokument==13&&localStorage.getItem("Dokument"+13+"gelesen")=="false")//Skandal14
+	{
+		zStressLevel-=0.05;
+		zImage2Level-=0.15;
+		zImageLevel-=0.15;
+	}
+	else if(zOffeneDokument==14&&localStorage.getItem("Dokument"+14+"gelesen")=="false")//Skandal15
 	{
 		zStressLevel-=0.25;
 		zImageLevel-=0.7;
