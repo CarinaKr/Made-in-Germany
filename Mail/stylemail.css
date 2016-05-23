@@ -24,6 +24,7 @@ section {
 	width: 30%;
 	border: 1px solid black;
 	float: left;
+	overflow:auto;
 }
 
 div.mail-header {
