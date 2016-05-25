@@ -372,6 +372,15 @@ function pruefePosition(pPosition)
 		setTimeout(sendeMail,zZeiteinheit*2,15);
 		setTimeout(sendeMail,zZeiteinheit*3,8);
 	}
+	else if(pPosition==19)
+	{
+		setTimeout(sendeDokument,zZeiteinheit,19);
+	}
+	else if(pPosition==20)
+	{
+		setTimeout(sendeDokument,zZeiteinheit,20);
+	}
+	
 	else if(pPosition==22)
 	{
 		//restart();

@@ -204,11 +204,13 @@ function antwort(pAntwort)
 		{
 			zImage2Level+=0.1;
 			zWirtschaftlichkeitLevel-=0.05;
+			localStorage.setItem("Position",19);
 		}
 		else if(pAntwort==1)
 		{
 			zImage2Level-=0.05;
 			zWirtschaftlichkeitLevel+=0.1;
+			localStorage.setItem("Position",20);
 		}
 	}
 	
