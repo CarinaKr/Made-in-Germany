@@ -111,7 +111,7 @@ function zeichneBalken()
 	zMainCtx.drawImage(zGesamtBild,250,50,100,50,zImage2LevelX,zImage2LevelY,zImage2LevelMax*zImage2Level,50);
 	zMainCtx.fillText("Stress",zStressLevelX+10,zStressLevelY+30);
 	zMainCtx.fillText("Image",zImageLevelX+10,zImageLevelY+30);
-	zMainCtx.fillText("Image2",zImage2LevelX+10,zImage2LevelY+30);
+	zMainCtx.fillText("Mitarbeiterzufriedenheit",zImage2LevelX+10,zImage2LevelY+30);
 	zMainCtx.fillText("Wirtschaftlichkeit",zWirtschaftlichkeitLevelX+10,zWirtschaftlichkeitLevelY+30);
 }
 
