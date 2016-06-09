@@ -133,7 +133,7 @@ function zeigeMail(pNummer)
 	if(localStorage.getItem("Mail"+zOffeneMail+"gelesen")=="false")
 	{
 		localStorage.setItem("Mail"+zOffeneMail+"gelesen","true");
-		zMailAbsender[pNummer].style.fontSize=15+"px";
+		zMailAbsender[pNummer].style.fontWeight=400;
 	}
 	zMailAddressat.innerHTML=zAbsender[zMail[pNummer]];
 	
