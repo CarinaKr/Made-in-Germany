@@ -48,6 +48,13 @@ aside {
 	margin-left: 0px;
 }
 
+.Antwort
+{
+	position: absolute;
+	width: 10%;
+	height: 5%;
+}
+
 header {
 	background-image:logo-lang.jpg;
 	background-repeat: no-repeat;
