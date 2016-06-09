@@ -51,7 +51,7 @@ function ladeMails()
 		zMail[zMail.length-1-i]=Number(localStorage.getItem("Mail"+i));
 		if(localStorage.getItem("Mail"+zMail[zMail.length-1-i]+"gelesen")=="false")
 		{
-			zMailAbsender[zMail.length-1-i].style.fontSize=20+"px";
+			zMailAbsender[zMail.length-1-i].style.fontWeight=700;
 		}
 		zMailAbsender[zMail.length-1-i].innerHTML=zAbsender[zMail[zMail.length-1-i]];
 	}

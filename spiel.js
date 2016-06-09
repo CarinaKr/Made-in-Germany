@@ -23,6 +23,7 @@ function init()
 	zMainCanvas=document.getElementById('main_canvas');
 	zMainCtx=main_canvas.getContext('2d');
 	zBall=document.getElementById('ball');
+	zMail=document.getElementById('mail');
 	
 	window.addEventListener("storage",storage,false);
 	//document.addEventListener("click",mausKlick,false);
@@ -244,7 +245,8 @@ function oeffneMail()
 {
 	 mailwindow = window.open("Mail/Metall-Mail.html", "Mail"); //"resizable=1, width=800,height=400, scrollbars=1"
 	 //mailwindow.moveTo(250,150);
-	 zMainCtx.clearRect(480,580,100,100);
+	 //zMainCtx.clearRect(480,580,100,100);
+	 zMail.src='bilder/mail.png';
 }
 function oeffneBall()
 {
@@ -269,7 +271,8 @@ function sendeMail(pNummer)
 	localStorage.setItem("Mail"+zMailCount,pNummer);
 	var newCount=Number(zMailCount)+1;
 	localStorage.setItem("MailCount",newCount);
-	zMainCtx.drawImage(zKreisBild,0,0,100,100,480,580,25,25);
+	//zMainCtx.drawImage(zKreisBild,0,0,100,100,480,580,25,25);
+	zMail.src='bilder/mailmitpunkt.png';
 }
 
 function sendeDokument(pNummer)
@@ -278,7 +281,7 @@ function sendeDokument(pNummer)
 	localStorage.setItem("Dokument"+zDokumentCount,pNummer);
 	var newCount=Number(zDokumentCount)+1;
 	localStorage.setItem("DokumentCount",newCount);
-	zMainCtx.drawImage(zKreisBild,0,0,100,100,420,380,25,25);
+	//zMainCtx.drawImage(zKreisBild,0,0,100,100,420,380,25,25);
 }
 
 function storage(e)
