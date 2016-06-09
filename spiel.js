@@ -88,10 +88,10 @@ function zeichneBild()
 	zWirtschaftlichkeitLevelX=10,zWirtschaftlichkeitLevelY=70,zWirtschaftlichkeitLevelMax=200;
 	zImageLevelX=10,zImageLevelY=130,zImageLevelMax=200;
 	zImage2LevelX=10,zImage2LevelY=190,zImage2LevelMax=200;
-	zMainCtx.fillStyle="grey";zMainCtx.font="15px Arial";zMainCtx.textBaseLine="bottom";
+	zMainCtx.fillStyle="black";zMainCtx.font="15px Arial";zMainCtx.textBaseLine="bottom";
 	
 	zHintergrundCtx.clearRect(0,0,1335,635);
-	zHintergrundCtx.drawImage(zDeskBild,0,0,816,602,250,70,750,553);
+	zHintergrundCtx.drawImage(zDeskBild,0,0,816,485,250,70,750,553);
 	
 	zeichneBalken();
 }
