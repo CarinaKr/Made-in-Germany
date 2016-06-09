@@ -24,6 +24,7 @@ function init()
 	zMainCtx=main_canvas.getContext('2d');
 	zBall=document.getElementById('ball');
 	zMail=document.getElementById('mail');
+	zDokumente=document.getElementById('dokumente');
 	
 	window.addEventListener("storage",storage,false);
 	//document.addEventListener("click",mausKlick,false);
@@ -239,7 +240,8 @@ function klickIcon(pIcon)
 function oeffneDocumente()
 {
 	 dokumentwindow = window.open("Mail/Dokumente.html", "Dokumente");
-	 zMainCtx.clearRect(420,380,100,100);
+	 //zMainCtx.clearRect(420,380,100,100);
+	 zDokumente.src='bilder/Dokumente2.png';
 }
 function oeffneMail()
 {
@@ -282,6 +284,7 @@ function sendeDokument(pNummer)
 	var newCount=Number(zDokumentCount)+1;
 	localStorage.setItem("DokumentCount",newCount);
 	//zMainCtx.drawImage(zKreisBild,0,0,100,100,420,380,25,25);
+	zDokumente.src='bilder/Dokumente2mitkreis.png';
 }
 
 function storage(e)
