@@ -1,4 +1,4 @@
- {
+ /*{
 	color: #FFFFFF;
 	height: 0px;
 	width:;
@@ -12,6 +12,13 @@
 	+border-radius: 30px;
 	font-size: 146%;
 	+box-shadow: -1px -6px 9px -1px #097412;
+}*/
+
+p {
+	color:black;
+	font-family: Helvetica;
+	
+
 }
 a {
 	color: black;
@@ -29,10 +36,24 @@ section {
 
 div.mail-header {
 	padding-top: 25px;
-	padding-bottom: 196px;
+	padding-bottom: 25px;
 	padding-right: 0px;
 	padding-left: 21px;
+	font-family: Helvetica;
+	color: black;
+	background-color: #e1e1e1;
+	border-bottom:0.5px solid black;
 }
+
+div.mail-text {
+	padding-top: 25px;
+	padding-bottom: 106px;
+	padding-right: 0px;
+	padding-left: 21px;
+	font-family: Helvetica;
+	color: #000000;
+}
+
 
 aside {
 	display: inline-block;
@@ -46,6 +67,7 @@ aside {
 
 .Mail {
 	margin-left: 0px;
+	
 }
 
 .Antwort
@@ -53,6 +75,14 @@ aside {
 	position: absolute;
 	width: 10%;
 	height: 5%;
+	color: #000000;
+	
+}
+
+div.text {
+	padding-top: 25px;
+	padding-left: 21px;
+	font-family: Helvetica;
 }
 
 header {
@@ -73,7 +103,8 @@ li {
 	margin-top: 17px;
 	padding-top: 30px;
 	padding-bottom: 30px;
-	border: 1px solid black;
+	border-top:1px solid black;
+	font-family: Helvetica;
 }
 
 nav {
@@ -81,4 +112,7 @@ nav {
 }
 h2{
 	1.5em;
+	font-family: Caslon;
+	padding-left: 21px;
+	color: #1565b3;
 }
