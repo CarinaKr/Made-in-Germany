@@ -20,7 +20,13 @@
 	.icon
 	{
 		position:absolute;
-		width:16%;
+		width:20%;
+		height:%;
+	}
+	.icon1
+	{
+		position:absolute;
+		width:30%;
 		height:%;
 	}
 	.icon2

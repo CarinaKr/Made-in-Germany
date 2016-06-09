@@ -91,7 +91,7 @@ function zeichneBild()
 	zMainCtx.fillStyle="black";zMainCtx.font="15px Arial";zMainCtx.textBaseLine="bottom";
 	
 	zHintergrundCtx.clearRect(0,0,1335,635);
-	zHintergrundCtx.drawImage(zDeskBild,0,0,816,485,250,70,750,553);
+	zHintergrundCtx.drawImage(zDeskBild,0,0,816,485,0,0,1335,635);
 	
 	zeichneBalken();
 }
