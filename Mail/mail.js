@@ -142,6 +142,7 @@ function zeigeMail(pNummer)
 
 function antwort(pAntwort)
 {
+	var pGeantwortet=true;
 	localStorage.setItem("Mail"+zOffeneMail+"beantwortet",pAntwort);//antwort speichern
 	var pErsteAntwort=zGegebeneAntwort1.innerHTML;
 	zGegebeneAntwort1.innerHTML=zAntwortButton[pAntwort].innerHTML;
@@ -167,6 +168,7 @@ function antwort(pAntwort)
 			var pImage2Abzug=Number(localStorage.getItem("AbzugImage2"))+0.03;
 			localStorage.setItem("AbzugImage2",pImage2Abzug);
 		}
+		pGeantwortet=false;
 	}
 	else if(zOffeneMail==22)//Alltag1 nachfrage
 	{
@@ -180,6 +182,8 @@ function antwort(pAntwort)
 		{
 			zWirtschaftlichkeitLevel-=0.05;
 			zImage2Level+=0.1;
+			var pImage2Abzug=0;
+			localStorage.setItem("AbzugImage2",pImage2Abzug);
 		}
 	}
 	
@@ -203,6 +207,7 @@ function antwort(pAntwort)
 		if(pAntwort==0)
 		{
 			zImage2Level+=0.1;
+			localStorage.setItem("AbzugImage2",0);
 			zWirtschaftlichkeitLevel-=0.05;
 			localStorage.setItem("Position",19);
 		}
@@ -229,6 +234,8 @@ function antwort(pAntwort)
 		{
 			localStorage.setItem("Position",10);
 		}
+		
+		pGeantwortet=false;
 	}
 	else if(zOffeneMail==23)//Skandal2 Nachfrage
 	{
@@ -321,9 +328,13 @@ function antwort(pAntwort)
 		}
 	}
 	
-	
 	//Level speichern
 	speichereWerte();
+	
+	if(pGeantwortet)
+	{   var pA=Number(localStorage.getItem("Antwort"))+1;
+		localStorage.setItem("Antwort",pA);
+	}
 }
 
 function speichereWerte()

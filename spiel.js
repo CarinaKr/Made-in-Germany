@@ -72,12 +72,16 @@ function restart()
 	localStorage.setItem("MailCount",0);
 	localStorage.setItem("DokumentCount",0);
 	localStorage.setItem("Position",0);
+	localStorage.setItem("AbzugImage2",0);
+	localStorage.setItem("Antwort",0);
 }
 
 function ladeBilder()
 {
 	zGesamtBild=new Image();
 	zGesamtBild.src='bilder/gesamt.png';
+	zSkalaBild=new Image();
+	zSkalaBild.src='bilder/skala_farbig.png';
 	zDeskBild=new Image();
 	zDeskBild.src='bilder/schreibtisch.jpg';
 	zKreisBild=new Image();
@@ -90,7 +94,8 @@ function zeichneBild()
 	zWirtschaftlichkeitLevelX=10,zWirtschaftlichkeitLevelY=70,zWirtschaftlichkeitLevelMax=200;
 	zImageLevelX=10,zImageLevelY=130,zImageLevelMax=200;
 	zImage2LevelX=10,zImage2LevelY=190,zImage2LevelMax=200;
-	zMainCtx.fillStyle="black";zMainCtx.font="15px Arial";zMainCtx.textBaseLine="bottom";
+	zBalkenHoehe=35;
+	zMainCtx.fillStyle="black";zMainCtx.font="15px Arial";zMainCtx.textBaseLine="top";
 	
 	zHintergrundCtx.clearRect(0,0,1335,635);
 	zHintergrundCtx.drawImage(zDeskBild,0,0,816,485,0,0,1335,635);
@@ -102,19 +107,22 @@ function zeichneBalken()
 {
 	pruefeLevel();
 	zMainCtx.clearRect(0,0,500,500);
-	zMainCtx.drawImage(zGesamtBild,250,0,100,50,zStressLevelX,zStressLevelY,zStressLevelMax,50);
-	zMainCtx.drawImage(zGesamtBild,250,50,100,50,zStressLevelX,zStressLevelY,zStressLevelMax*zStressLevel,50);
-	zMainCtx.drawImage(zGesamtBild,250,0,100,50,zWirtschaftlichkeitLevelX,zWirtschaftlichkeitLevelY,zWirtschaftlichkeitLevelMax,50);
-	zMainCtx.drawImage(zGesamtBild,250,50,100,50,zWirtschaftlichkeitLevelX,zWirtschaftlichkeitLevelY,zWirtschaftlichkeitLevelMax*zWirtschaftlichkeitLevel,50);
-	zMainCtx.drawImage(zGesamtBild,250,0,100,50,zImageLevelX,zImageLevelY,zImageLevelMax,50);
-	zMainCtx.drawImage(zGesamtBild,250,50,100,50,zImageLevelX,zImageLevelY,zImage2LevelMax*zImageLevel,50);
-	zMainCtx.drawImage(zGesamtBild,250,50,100,50,zWirtschaftlichkeitLevelX,zWirtschaftlichkeitLevelY,zWirtschaftlichkeitLevelMax*zWirtschaftlichkeitLevel,50);
-	zMainCtx.drawImage(zGesamtBild,250,0,100,50,zImage2LevelX,zImage2LevelY,zImage2LevelMax,50);
-	zMainCtx.drawImage(zGesamtBild,250,50,100,50,zImage2LevelX,zImage2LevelY,zImage2LevelMax*zImage2Level,50);
-	zMainCtx.fillText("Stress",zStressLevelX+10,zStressLevelY+30);
-	zMainCtx.fillText("Image",zImageLevelX+10,zImageLevelY+30);
-	zMainCtx.fillText("Mitarbeiterzufriedenheit",zImage2LevelX+10,zImage2LevelY+30);
-	zMainCtx.fillText("Wirtschaftlichkeit",zWirtschaftlichkeitLevelX+10,zWirtschaftlichkeitLevelY+30);
+	zMainCtx.drawImage(zGesamtBild,250,0,100,50,zStressLevelX,zStressLevelY,zStressLevelMax,zBalkenHoehe);
+	zMainCtx.drawImage(zSkalaBild,0,0,284*zStressLevel,29,zStressLevelX,zStressLevelY,zStressLevelMax*zStressLevel,zBalkenHoehe);
+	
+	zMainCtx.drawImage(zGesamtBild,250,0,100,50,zWirtschaftlichkeitLevelX,zWirtschaftlichkeitLevelY,zWirtschaftlichkeitLevelMax,zBalkenHoehe);
+	zMainCtx.drawImage(zSkalaBild,0,0,284*zWirtschaftlichkeitLevel,29,zWirtschaftlichkeitLevelX,zWirtschaftlichkeitLevelY,zWirtschaftlichkeitLevelMax*zWirtschaftlichkeitLevel,zBalkenHoehe);
+	
+	zMainCtx.drawImage(zGesamtBild,250,0,100,50,zImageLevelX,zImageLevelY,zImageLevelMax,zBalkenHoehe);
+	zMainCtx.drawImage(zSkalaBild,0,0,284*zImageLevel,29,zImageLevelX,zImageLevelY,zImage2LevelMax*zImageLevel,zBalkenHoehe);
+	
+	zMainCtx.drawImage(zGesamtBild,250,0,100,50,zImage2LevelX,zImage2LevelY,zImage2LevelMax,zBalkenHoehe);
+	zMainCtx.drawImage(zSkalaBild,0,0,284*zImage2Level,29,zImage2LevelX,zImage2LevelY,zImage2LevelMax*zImage2Level,zBalkenHoehe);
+	
+	zMainCtx.fillText("Stress",zStressLevelX+10,zStressLevelY+25);
+	zMainCtx.fillText("Image",zImageLevelX+10,zImageLevelY+25);
+	zMainCtx.fillText("Mitarbeiterzufriedenheit",zImage2LevelX+10,zImage2LevelY+25);
+	zMainCtx.fillText("Wirtschaftlichkeit",zWirtschaftlichkeitLevelX+10,zWirtschaftlichkeitLevelY+25);
 }
 
 function pruefeLevel()
@@ -302,6 +310,11 @@ function storage(e)
 	{
 		pruefePosition(Number(j));
 	}
+	
+	if(i=="Antwort")
+	{
+		mailwindow.close();
+	}
 }
 
 function starteAlltag()
@@ -451,6 +464,8 @@ function loop()
 	{
 		zWirtschaftlichkeitLevel-=0.01;
 	}
+	
+	zImage2Level-=Number(localStorage.getItem("AbzugImage2"));
 	
 	speichereWerte();
 	zeichneBalken();
