@@ -89,7 +89,7 @@ zAntwort[11][1]=zAntwort[6][1];
 zAntwort[15][0]="";
 zAntwort[15][1]="";
 
-zAntwort[16][0]="Lob aussprechen";
+zAntwort[16][0]="Lob aussprechen:";
 zAntwort[16][1]="keine Reaktion";
 zAntwort[22][0]="Bonus";
 zAntwort[22][1]="freier Tag";
