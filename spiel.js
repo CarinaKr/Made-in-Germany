@@ -378,7 +378,7 @@ function pruefePosition(pPosition)
 	else if(pPosition==9)
 	{
 		setTimeout(sendeDokument,zZeiteinheit,9);
-		localStorage.setItem("Position",14);
+		//localStorage.setItem("Position",14);
 	}
 	else if(pPosition==10)
 	{
@@ -395,7 +395,7 @@ function pruefePosition(pPosition)
 	else if(pPosition==13)
 	{
 		setTimeout(sendeDokument,zZeiteinheit,13);
-		localStorage.setItem("Position",14);
+		//localStorage.setItem("Position",14);
 	}
 	else if(pPosition==14)
 	{
