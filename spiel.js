@@ -27,6 +27,7 @@ function init()
 	zDokumente=document.getElementById('dokumente');
 	
 	window.addEventListener("storage",storage,false);
+	document.addEventListener("onload",onLoad,false);
 	//document.addEventListener("click",mausKlick,false);
 	
 	restart();
@@ -38,12 +39,18 @@ function init()
 	
 	ladeBilder();
 	zeichneBild();
+	var zTest=true;
 	loop();
 	
 	zZeiteinheit=30000;
 	zMailCount=Number(localStorage.getItem("MailCount"));
 	starteAlltag();
 	starteSkandal();
+}
+
+function onLoad()
+{
+	zeichneBild();
 }
 
 function mouse(e)
