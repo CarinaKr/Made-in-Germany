@@ -26,4 +26,12 @@ zQuelle[14]="Zeitung 5";
 zQuelle[19]="Zeitung 1";
 zQuelle[20]="Zeitung 2";
 
+/*
+Norddeutsche Zeitung
+Zeitung des Nordens
+Hamburger Abendpost
+Stader Morgenblatt
+Westdeutsche Zeitung
+FOTO
 
+*/
