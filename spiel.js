@@ -5,6 +5,7 @@ var zDocumentOffen=false,zMailOffen=false,zBallOffen=false;
 var zZeiteinheit;
 var zBallZaehler=0;
 var zLoopZaehler=0;
+var zGameOver;
 
 function init()
 {
@@ -26,6 +27,8 @@ function init()
 	zBall=document.getElementById('ball');
 	zMail=document.getElementById('mail');
 	zDokumente=document.getElementById('dokumente');
+	zKanne=document.getElementById('kanne');
+	zFoto=document.getElementById('foto');
 	
 	window.addEventListener("storage",storage,false);
 	//document.addEventListener("click",mausKlick,false);
@@ -76,6 +79,7 @@ function restart()
 	zImageLevel=1;
 	zWirtschaftlichkeitLevel=1;
 	zImage2Level=1;
+	zGameOver=false;
 	localStorage.setItem("StressLevel",zStressLevel);
 	localStorage.setItem("ImageLevel",zImageLevel);
 	localStorage.setItem("WirtschaftlichkeitLevel",zWirtschaftlichkeitLevel);
@@ -117,6 +121,7 @@ function zeichneBild()
 
 function zeichneBalken()
 {
+	if(zGameOver==false){
 	pruefeLevel();
 	zMainCtx.clearRect(0,0,500,500);
 	zMainCtx.drawImage(zGesamtBild,250,0,100,50,zStressLevelX,zStressLevelY,zStressLevelMax,zBalkenHoehe);
@@ -135,6 +140,7 @@ function zeichneBalken()
 	zMainCtx.fillText("Image",zImageLevelX+10,zImageLevelY+25);
 	zMainCtx.fillText("Mitarbeiterzufriedenheit",zImage2LevelX+10,zImage2LevelY+25);
 	zMainCtx.fillText("Wirtschaftlichkeit",zWirtschaftlichkeitLevelX+10,zWirtschaftlichkeitLevelY+25);
+	}
 }
 
 function pruefeLevel()
@@ -240,20 +246,23 @@ function pruefeLevel()
 
 function klickIcon(pIcon)
 {
-	if(pIcon==1)
+	if(zGameOver==false)
 	{
-		oeffneMail();
-		zMailOffen=true;
-	}
-	else if(pIcon==2)
-	{
-		oeffneBall();
-		zBallOffen=true;
-	}
-	else if(pIcon==3)
-	{
-		oeffneDocumente();
-		zDocumentOffen=true;
+		if(pIcon==1)
+		{
+			oeffneMail();
+			zMailOffen=true;
+		}
+		else if(pIcon==2)
+		{
+			oeffneBall();
+			zBallOffen=true;
+		}
+		else if(pIcon==3)
+		{
+			oeffneDocumente();
+			zDocumentOffen=true;
+		}
 	}
 }
 
@@ -401,7 +410,6 @@ function pruefePosition(pPosition)
 	{
 		setTimeout(sendeDokument,zZeiteinheit,14);
 		setTimeout(sendeMail,zZeiteinheit*2,15);
-		setTimeout(sendeMail,zZeiteinheit*3,8);
 	}
 	else if(pPosition==19)
 	{
@@ -417,8 +425,11 @@ function pruefePosition(pPosition)
 		//restart();
 		mailwindow.close();
 		dokumentwindow.close();
-		zMainCtx.fillStyle="red";zMainCtx.font="30px Arial";zMainCtx.textBaseLine="bottom";
-		zMainCtx.fillText("Game Over",500,500);
+		zGameOver=true;
+		zMainCtx.clearRect(0,0,500,500);
+		zBall.style.visibility='hidden';
+		zFoto.style.visibility='hidden';
+		zKanne.style.visibility='hidden';
 	}
 }
 
