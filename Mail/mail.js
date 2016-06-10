@@ -69,11 +69,15 @@ function zeigeMail(pNummer)
 	zAntwortButton[1].innerHTML=zAntwort[zMail[pNummer]][1];
 	zAntwortButton[0].disabled=false;
 	zAntwortButton[1].disabled=false;
+	zAntwortButton[0].style.visibility='visible';
+	zAntwortButton[1].style.visibility='visible';
 	
 	if(zAntwort[zMail[pNummer]][0]==""||localStorage.getItem("Mail"+zMail[pNummer]+"beantwortet")!="false")
 	{
 		zAntwortButton[0].disabled=true;
 		zAntwortButton[1].disabled=true;
+		zAntwortButton[0].style.visibility='hidden';
+		zAntwortButton[1].style.visibility='hidden';
 		if(localStorage.getItem("Mail"+zMail[pNummer]+"beantwortet")!="false")
 		{zGegebeneAntwort1.innerHTML=zAntwortButton[Number(localStorage.getItem("Mail"+zMail[pNummer]+"beantwortet"))].innerHTML;}
 	}
