@@ -91,6 +91,7 @@ function zeigeDokument(pNummer)
 		zStressLevel-=0.05;
 		zImage2Level-=0.05;
 		zImageLevel-=0.05;
+		localStorage.setItem("Position",14);
 	}
 	else if(zOffeneDokument==12&&localStorage.getItem("Dokument"+12+"gelesen")=="false")//Skandal13
 	{
@@ -104,6 +105,7 @@ function zeigeDokument(pNummer)
 		zStressLevel-=0.05;
 		zImage2Level-=0.15;
 		zImageLevel-=0.15;
+		localStorage.setItem("Position",14);
 	}
 	else if(zOffeneDokument==14&&localStorage.getItem("Dokument"+14+"gelesen")=="false")//Skandal15
 	{

@@ -39,13 +39,22 @@ function init()
 	
 	ladeBilder();
 	zeichneBild();
-	zTest=true;
+	bildloop();
+	zTest;
 	loop();
 	
 	zZeiteinheit=30000;
 	zMailCount=Number(localStorage.getItem("MailCount"));
 	starteAlltag();
 	starteSkandal();
+}
+
+function bildloop()
+{
+	if(zLoopZaehler<5)
+	{zeichneBild;
+	setTimeout(bildloop,50);
+	zLoopZaehler++;}
 }
 
 function mouse(e)
@@ -103,6 +112,7 @@ function zeichneBild()
 	zHintergrundCtx.drawImage(zDeskBild,0,0,816,485,0,0,1335,635);
 	
 	zeichneBalken();
+	zTest=true;
 }
 
 function zeichneBalken()
@@ -422,12 +432,6 @@ function speichereWerte()
 
 function loop()
 {	
-	if(zLoopZaehler<5)
-	{
-		this.zeichneBild();
-		zLoopZaehler++;
-	}
-
 	if(zStressLevel<=0||zImage2Level<=0||zImageLevel<=0||zWirtschaftlichkeitLevel<=0)
 	{
 		localStorage.setItem("Position",8); //Anfrage nach Rücktritt
