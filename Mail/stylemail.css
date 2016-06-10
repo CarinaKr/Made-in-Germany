@@ -46,12 +46,13 @@ div.mail-header {
 }
 
 div.mail-text {
-	padding-top: 25px;
-	padding-bottom: 106px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 	padding-right: 0px;
 	padding-left: 21px;
 	font-family: Helvetica;
 	color: #000000;
+
 }
 
 
@@ -75,6 +76,7 @@ aside {
 	position: absolute;
 	width: 10%;
 	height: 5%;
+	top: 530px;
 	color: #000000;
 	
 }
