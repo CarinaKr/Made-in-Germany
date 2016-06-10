@@ -166,13 +166,13 @@ function antwort(pAntwort)
 			zAntwortButton[1].innerHTML=zAntwort[zOffeneMail][1];
 			zAntwortButton[0].disabled=false;
 			zAntwortButton[1].disabled=false;
+			pGeantwortet=false;
 		}
 		else if(pAntwort==1)
 		{
 			var pImage2Abzug=Number(localStorage.getItem("AbzugImage2"))+0.03;
 			localStorage.setItem("AbzugImage2",pImage2Abzug);
 		}
-		pGeantwortet=false;
 	}
 	else if(zOffeneMail==22)//Alltag1 nachfrage
 	{
@@ -233,13 +233,12 @@ function antwort(pAntwort)
 			zAntwortButton[1].innerHTML=zAntwort[zOffeneMail][1];
 			zAntwortButton[0].disabled=false;
 			zAntwortButton[1].disabled=false;
+			pGeantwortet=false;
 		}
 		else if(pAntwort==1)
 		{
 			localStorage.setItem("Position",10);
 		}
-		
-		pGeantwortet=false;
 	}
 	else if(zOffeneMail==23)//Skandal2 Nachfrage
 	{

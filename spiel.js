@@ -4,6 +4,7 @@ var zStressLevel,zImageLevel,zWirtschaftlichkeitLevel,zImage2Level;
 var zDocumentOffen=false,zMailOffen=false,zBallOffen=false;
 var zZeiteinheit;
 var zBallZaehler=0;
+var zLoopZaehler=0;
 
 function init()
 {
@@ -27,7 +28,6 @@ function init()
 	zDokumente=document.getElementById('dokumente');
 	
 	window.addEventListener("storage",storage,false);
-	//document.addEventListener("onload",onLoad,false);
 	//document.addEventListener("click",mausKlick,false);
 	
 	restart();
@@ -422,6 +422,12 @@ function speichereWerte()
 
 function loop()
 {	
+	if(zLoopZaehler<5)
+	{
+		this.zeichneBild();
+		zLoopZaehler++;
+	}
+
 	if(zStressLevel<=0||zImage2Level<=0||zImageLevel<=0||zWirtschaftlichkeitLevel<=0)
 	{
 		localStorage.setItem("Position",8); //Anfrage nach Rücktritt

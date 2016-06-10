@@ -43,7 +43,7 @@ function ladeDokumente()
 		zDokument[zDokument.length-1-i]=Number(localStorage.getItem("Dokument"+i));
 		if(localStorage.getItem("Dokument"+zDokument[zDokument.length-1-i]+"gelesen")=="false")
 		{
-			zDokumentQuelle[zDokument.length-1-i].style.fontSize=20+"px";
+			zDokumentQuelle[zDokument.length-1-i].style.fontWeight=700;
 		}
 		zDokumentQuelle[zDokument.length-1-i].innerHTML=zQuelle[zDokument[zDokument.length-1-i]];
 	}
@@ -116,7 +116,7 @@ function zeigeDokument(pNummer)
 	if(localStorage.getItem("Dokument"+zOffeneDokument+"gelesen")=="false")
 	{
 		localStorage.setItem("Dokument"+zOffeneDokument+"gelesen","true");
-		zDokumentQuelle[pNummer].style.fontSize=15+"px";
+		zDokumentQuelle[pNummer].style.fontWeight=400;
 	}
 	
 	speichereWerte();
