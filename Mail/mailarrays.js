@@ -78,8 +78,8 @@ zAntwort[5][1]="Ablehnen";
 zAntwort[6][0]="Sicherheitslücken offenlegen";
 zAntwort[6][1]="Verantwortlichkeit bestreiten";
 //7 ist Dokument
-zAntwort[8][0]="Ja";
-zAntwort[8][1]="Nein";
+zAntwort[8][0]="Ja, zurücktreten";
+zAntwort[8][1]="Nein, nicht zurücktreten";
 
 zAntwort[10][0]="Annehmen";
 zAntwort[10][1]="Absagen";
@@ -100,4 +100,4 @@ zAntwort[18][1]="Extern";
 
 
 zNachfrage[0]="Bonus an den Abteilungsleiter oder einen freien Tag für alle Mitarbeiter?";
-zNachfrage[1]="Bedauern ausdrücken aber Verantworklichkeit abstreiten oder Sicherheitslücken offenlegen und Aufarbeitung versprechen?";
+zNachfrage[1]="Bedauern ausdrücken aber Verantwortlichkeit abstreiten oder Sicherheitslücken offenlegen und Aufarbeitung versprechen?";
