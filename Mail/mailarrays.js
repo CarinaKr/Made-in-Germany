@@ -38,11 +38,11 @@ zMailText[2]="nach Ihrer gestrigen Pressemitteilung sind noch viele Fragen offen
 zMailText[5]="nach Ihrer gestrigen Pressemitteilung sind noch viele Fragen offen. Daher würden wir Sie gerne "+
 				"zu einem Interview einladen.";
 zMailText[6]="für Ihr bevorstehendes Interview gibt es noch einige Details zu bedenken. Sie haben entweder die Möglichkeit die "+
-				"Sicherheitslücken nun doch offenzulegen, nachdem Sie diese in der vorherigen Pressemitteilung abgestitten haben. "+
+				"Sicherheitslücken nun doch offenzulegen, nachdem Sie diese in der vorherigen Pressemitteilung abgestritten haben. "+
 				"Alternativ könnten Sie an der vorherigen "+
 				"Aussage festhalten und die Beteiligung der Firma am Unglück weiterhin leugnen. ";
 // 7 ist ein Dokument
-zMailText[8]="in Anbegracht der Ergeignisse der letzen Tage möchten wir Ihnen die "+
+zMailText[8]="im Anbetracht der Ergeignisse der letzen Tage möchten wir Ihnen die "+
 				"Möglichkeit eines Rücktrittes nahelegen. Bitte denken Sie sorgfältig darüber nach. ";
 
 zMailText[10]="durch vertrauliche Quellen sind wir auf einen Bericht über ein Minenunglück in einer der Erzminen Ihrer Firma gestoßen. "+
@@ -51,13 +51,13 @@ zMailText[11]="für Ihr bevorstehendes Interview gibt es noch einige Details zu 
 				"Sicherheitslücken offenzulegen. "+
 				"Alternativ könnten Sie die Beteiligung der Firma am Unglück leugnen. ";
 
-zMailText[15]="nach diversen negativen Berichtes über unsere Firma zum Minenunglück kam es zu einer Demonstration von Menschenrechtsaktivisten "+
+zMailText[15]="nach diversen negativen Berichten über unsere Firma zum Minenunglück kam es zu einer Demonstration von Menschenrechtsaktivisten "+
 				"vor unserem Bürogebäude. Ich werde Sie bald über Näheres informieren. ";
 
 zMailText[16]="in der Veröffentlichung des neuesten Quartalberichtes ist zu bemerken, dass vor allem die Abteilung D-Süd "+
 				"sehr effektiv und nachhaltig gearbeitet hat. Herr Seiler hat empfohlen entweder dem Abteilungsleiter einen entsprechenden Bonus "+
 				"auszuzahlen oder jedem Mitarbeiter der Abteilung einen Tag Urlaub zuzuteilen. Welche Option würden Sie Empfehlen?";
-zMailText[17]="Personalchef Karl Heinz Mutmacher wird nach langjähriger Mitarbeit zum 1. September in Rente gehen. Zu diesem Anlass wäre"+
+zMailText[17]="Personalchef Karl Heinz Mutmacher wird nach langjähriger Mitarbeit zum 1. September in Rente gehen. Zu diesem Anlass wäre "+
 				"wünschenswert eine Abschiedsfeier zu veranstalten oder eine Grußkarte zu überreichen. Welche Aufmerksamkeit soll ich für Sie arrangieren? ";
 zMailText[18]="für die freigewordene Position des Personalchefs wird nun ein entsprechender Nachfolger gesucht. Nach Sichtung und Kennenlernen der "+
 				"Bewerber haben sich zwei Kandidaten besonders hervorgehoben. Der erste wäre ein Mitarbeiter, der bereits seit 13 Jahren bei "+
