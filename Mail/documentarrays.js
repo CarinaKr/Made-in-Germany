@@ -18,7 +18,7 @@ zDokumentText[19]="„Die Mayermetall GmbH freut sich außerordentlich verkünde
 					"Mit diesen Worten verrät Pressesprecher Knoll, was Viele erwartet haben. Durch seine "+
 					"konsequente und sichere Leitung führte er seine Abteilung stets zu Wachstum und überzeugte mit langem Atem. "+
 					"Dem pensionierten Herrn Mutmacher wünscht die IndustrieMarkt-Redaktion einen lebhaften und ausgeglichenen Ruhestand! ";
-zDokumentText[20]="„Die Mayermetall GmbH freut sich außerordentlich verkünden zu dürfen, 
+zDokumentText[20]="„Die Mayermetall GmbH freut sich außerordentlich verkünden zu dürfen, "+
 					"dass Herr Markus Schmitz zum 1. September die Stelle des Personalchefs übernehmen wird.“ "+
 					"Mit diesen Worten verrät Pressesprecher Knoll, was nur Wenige erwartet haben. "+
 					"Schmitz führte in den vergangen Jahren erfolgreich die Personalabteilung bei der "+ 
@@ -37,13 +37,3 @@ zQuelle[14]="Norddeutsche Zeitung";
 
 zQuelle[19]="IndustrieMarkt";
 zQuelle[20]="IndustrieMarkt";
-
-/*
-Norddeutsche Zeitung
-Zeitung des Nordens
-Hamburger Abendpost
-Stader Morgenblatt
-Westdeutsche Zeitung
-FOTO
-
-*/
