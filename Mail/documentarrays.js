@@ -23,7 +23,7 @@ zDokumentText[20]="„Die Mayermetall GmbH freut sich außerordentlich verkünde
 					"Mit diesen Worten verrät Pressesprecher Knoll, was nur Wenige erwartet haben. "+
 					"Schmitz führte in den vergangen Jahren erfolgreich die Personalabteilung bei der "+ 
 					"Süderholz in Berlin-Spandau. Innovatives Personalmanagement trifft hier auf "+
-					"hanseatische Tradition - eine gewagte, dich sicher geplante Kombination. "+
+					"hanseatische Tradition - eine gewagte, doch sicher geplante Kombination. "+
 					"Dem pensionierten Herrn Mutmacher wünscht die IndustrieMarkt-Redaktion "+
 					"einen lebhaften und ausgeglichenen Ruhestand! ";
 
