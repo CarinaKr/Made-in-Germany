@@ -46,7 +46,7 @@ function init()
 	zTest;
 	loop();
 	
-	zZeiteinheit=30000;
+	zZeiteinheit=15000;
 	zMailCount=Number(localStorage.getItem("MailCount"));
 	starteAlltag();
 	starteSkandal();
