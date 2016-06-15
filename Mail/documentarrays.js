@@ -1,8 +1,11 @@
 
 var zDokumentText=new Array(22);
 var zQuelle=new Array(22);
+var zTitel=new Array(22);
 
 /* was sind zDokumentText[3] und [4] - wann wird das gebraucht? */
+zDokumentText[0]="";
+
 zDokumentText[3]="Skandal 4: Ein Stellvertreter von Herr Mayer bestätigt Sicherheitslücken bei einem Interview.";
 zDokumentText[4]="Skandal 5: Herr Mayer gibt Sicherheitslücken bei einem persönlichen Interview zu.";
 
@@ -27,6 +30,8 @@ zDokumentText[20]="„Die Mayermetall GmbH freut sich außerordentlich verkünde
 					"Dem pensionierten Herrn Mutmacher wünscht die IndustrieMarkt-Redaktion "+
 					"einen lebhaften und ausgeglichenen Ruhestand! ";
 
+zQuelle[0]="";					
+					
 zQuelle[3]="Zeitung 6";
 zQuelle[4]="Zeitung 7";
 zQuelle[7]="Stader Morgenblatt";
@@ -37,3 +42,16 @@ zQuelle[14]="Norddeutsche Zeitung";
 
 zQuelle[19]="IndustrieMarkt";
 zQuelle[20]="IndustrieMarkt";
+
+zTitel[0]="";
+
+zTitel[3]="Sicherheitslücken bei Mayermetall";
+zTitel[4]="Sicherheitslücken bei Mayermetall";
+zTitel[7]="Mayermetall war an Sicherheitslücken in Erzmine beteiligt";
+zTitel[9]="Mayermetall streitet Sicherheitslücken in Erzminen ab";
+zTitel[12]="Mayermetall war an Sicherheitslücken in Erzmine beteiligt";
+zTitel[13]="Mayermetall streitet Sicherheitslücken in Erzminen ab";
+zTitel[14]="Mayermetall verheimlicht Unglück in Erzmine";
+
+zTitel[19]="Neuer Personalchef bei Mayermetall";
+zTitel[20]="Neuer Personalchef bei Mayermetall";

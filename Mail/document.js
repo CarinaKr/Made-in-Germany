@@ -21,6 +21,7 @@ function init()
 	for(var i=0;i<zDokumentCount;i++)
 	{zDokumentQuelle[i]=document.getElementById('dokument'+i);}
 	zDokumentTextFeld=document.getElementById('text');
+	zDokumentTitel=document.getElementById('mail-header');
 	
 	zStressLevel=Number(localStorage.getItem("StressLevel"));
 	zWirtschaftlichkeitLevel=Number(localStorage.getItem("WirtschaftlichkeitLevel"));
@@ -47,12 +48,14 @@ function ladeDokumente()
 		}
 		zDokumentQuelle[zDokument.length-1-i].innerHTML=zQuelle[zDokument[zDokument.length-1-i]];
 	}
-	zeigeDokument(0);
+	if(zDokument.length>0)
+	{zeigeDokument(0);}
 }
 
 function zeigeDokument(pNummer)
 {
 	zOffeneDokument=zDokument[pNummer];
+	zDokumentTitel.innerHTML=zTitel[zDokument[pNummer]];
 	zDokumentTextFeld.innerHTML=zDokumentText[zDokument[pNummer]];
 	
 	if(zOffeneDokument==19&&localStorage.getItem("Dokument"+19+"gelesen")=="false")//Alltag4

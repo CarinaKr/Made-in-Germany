@@ -54,9 +54,9 @@ function init()
 
 function bildloop()
 {
-	if(zLoopZaehler<5)
+	if(zLoopZaehler<50)
 	{zeichneBild;
-	setTimeout(bildloop,50);
+	setTimeout(bildloop,100);
 	zLoopZaehler++;}
 }
 
