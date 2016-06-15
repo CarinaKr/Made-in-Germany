@@ -56,7 +56,7 @@ function bildloop()
 {
 	if(zLoopZaehler<50)
 	{zeichneBild;
-	setTimeout(bildloop,100);
+	setTimeout(bildloop,1000);
 	zLoopZaehler++;}
 }
 
