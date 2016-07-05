@@ -48,14 +48,19 @@ function init()
 	zeichneBild();
 	bildloop();
 	zTest;
-	loop();
 	
-	zZeiteinheit=15000;
+	zZeiteinheit=30000;
 	zMailCount=Number(localStorage.getItem("MailCount"));
 	if(localStorage.getItem("AlltagGestartet")=="false")
-	{starteAlltag();localStorage.setItem("AlltagGestartet","true");}
+	{localStorage.setItem("AlltagGestartet","true");}
+	starteAlltag();
 	if(localStorage.getItem("SkandalGestartet")=="false")
-	{starteSkandal();localStorage.setItem("SkandalGestartet","true");}
+	{localStorage.setItem("SkandalGestartet","true");}
+	starteSkandal();
+	
+	
+	
+	loop();
 }
 
 function tasteGedrueckt(e)
@@ -236,20 +241,28 @@ function oeffneBall()
 
 function sendeMail(pNummer)
 {
-	zMailCount=localStorage.getItem("MailCount");
-	localStorage.setItem("Mail"+zMailCount,pNummer);
-	var newCount=Number(zMailCount)+1;
-	localStorage.setItem("MailCount",newCount);
-	zMail.src='bilder/mailmitpunkt.png';
+	if(localStorage.getItem("Mail"+pNummer+"gesendet")=="false")
+	{
+		zMailCount=localStorage.getItem("MailCount");
+		localStorage.setItem("Mail"+zMailCount,pNummer);
+		var newCount=Number(zMailCount)+1;
+		localStorage.setItem("MailCount",newCount);
+		zMail.src='bilder/mailmitpunkt.png';
+		localStorage.setItem("Mail"+pNummer+"gesendet","true");
+	}
 }
 
 function sendeDokument(pNummer)
 {
-	zDokumentCount=localStorage.getItem("DokumentCount");
-	localStorage.setItem("Dokument"+zDokumentCount,pNummer);
-	var newCount=Number(zDokumentCount)+1;
-	localStorage.setItem("DokumentCount",newCount);
-	zDokumente.src='bilder/Dokumente2mitkreis.png';
+	if(localStorage.getItem("Dokument"+pNummer+"gesendet")=="false")
+	{
+		zDokumentCount=localStorage.getItem("DokumentCount");
+		localStorage.setItem("Dokument"+zDokumentCount,pNummer);
+		var newCount=Number(zDokumentCount)+1;
+		localStorage.setItem("DokumentCount",newCount);
+		zDokumente.src='bilder/Dokumente2mitkreis.png';
+		localStorage.setItem("Dokument"+pNummer+"gesendet","true");
+	}
 }
 
 function storage(e)
@@ -277,16 +290,53 @@ function storage(e)
 function starteAlltag()
 {
 	zMailCount=localStorage.getItem("MailCount");
-	sendeMail(16);
-	setTimeout(sendeMail,zZeiteinheit,17);
-	setTimeout(sendeMail,zZeiteinheit*3,18);
+	var pZeiteinheit=Number(localStorage.getItem("Zeiteinheit"));
+	if(pZeiteinheit==0)
+	{	sendeMail(16);
+		setTimeout(sendeMail,zZeiteinheit,17);
+		setTimeout(sendeMail,zZeiteinheit*3,18);
+	}
+	else if(pZeiteinheit==1)
+	{
+		sendeMail(17);
+		setTimeout(sendeMail,zZeiteinheit*2,18);
+	}
+	else if(pZeiteinheit==2)
+	{
+		setTimeout(sendeMail,zZeiteinheit,18);
+	}
+	else if(pZeiteinheit==3)
+	{
+		sendeMail(18);
+	}
 }
 
 function starteSkandal()
 {
 	zMailCount=localStorage.getItem("MailCount");
-	setTimeout(sendeMail,zZeiteinheit*2,0);
-	setTimeout(sendeMail,zZeiteinheit*4,1);
+	var pZeiteinheit=Number(localStorage.getItem("Zeiteinheit"));
+	if(pZeiteinheit==0)
+	{	setTimeout(sendeMail,zZeiteinheit*2,0);
+		setTimeout(sendeMail,zZeiteinheit*4,1);
+	}
+	else if(pZeiteinheit==1)
+	{
+		setTimeout(sendeMail,zZeiteinheit,0);
+		setTimeout(sendeMail,zZeiteinheit*3,1);
+	}
+	else if(pZeiteinheit==2)
+	{
+		setTimeout(sendeMail,zZeiteinheit*2,1);
+	}
+	else if(pZeiteinheit==3)
+	{
+		setTimeout(sendeMail,zZeiteinheit,1);
+	}
+	else if(pZeiteinheit==4)
+	{
+		sendeDokument(1);
+	}
+	pruefePosition(Number(localStorage.getItem("Position")));
 }
 
 function pruefePosition(pPosition)
@@ -428,6 +478,10 @@ function loop()
 	
 	speichereWerte();
 	zeichneBalken();
+	
+	var pZeitNeu=Number(localStorage.getItem("Zeiteinheit"));
+	localStorage.setItem("Zeiteinheit",pZeitNeu+1);
+	
 	setTimeout(loop,zZeiteinheit);
 }
 

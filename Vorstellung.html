@@ -45,8 +45,10 @@
 			{
 				localStorage.setItem("Mail"+i+"gelesen","false");
 				localStorage.setItem("Mail"+i+"beantwortet","false");
+				localStorage.setItem("Mail"+i+"gesendet","false");
 				localStorage.setItem("Dokument"+i+"gelesen","false");
 				localStorage.setItem("Dokument"+i+"beantwortet","false");
+				localStorage.setItem("Dokument"+i+"gesendet","false");
 			}
 			zStressLevel=1;
 			zImageLevel=1;
@@ -66,6 +68,9 @@
 			
 			localStorage.setItem("AlltagGestartet","false");
 			localStorage.setItem("SkandalGestartet","false");
+			localStorage.setItem("Zeiteinheit",0);
+			localStorage.setItem("Position",0);
+			
 		}
 		</script>
 		
