@@ -35,10 +35,44 @@
 		
 			function enter()
 			{
+				restart();
 				location.href="Schreibtisch.html";
 			}
+			
+			function restart()
+{
+			for(var i=0;i<30;i++)
+			{
+				localStorage.setItem("Mail"+i+"gelesen","false");
+				localStorage.setItem("Mail"+i+"beantwortet","false");
+				localStorage.setItem("Dokument"+i+"gelesen","false");
+				localStorage.setItem("Dokument"+i+"beantwortet","false");
+			}
+			zStressLevel=1;
+			zImageLevel=1;
+			zWirtschaftlichkeitLevel=1;
+			zImage2Level=1;
+			zGameOver=false;
+			localStorage.setItem("GameOver",zGameOver);
+			localStorage.setItem("StressLevel",zStressLevel);
+			localStorage.setItem("ImageLevel",zImageLevel);
+			localStorage.setItem("WirtschaftlichkeitLevel",zWirtschaftlichkeitLevel);
+			localStorage.setItem("Image2Level",zImage2Level);
+			localStorage.setItem("MailCount",0);
+			localStorage.setItem("DokumentCount",0);
+			localStorage.setItem("Position",0);
+			localStorage.setItem("AbzugImage2",0);
+			localStorage.setItem("Antwort",0);
+			
+			localStorage.setItem("AlltagGestartet","false");
+			localStorage.setItem("SkandalGestartet","false");
+		}
 		</script>
 		
 	</body>
 
+	<footer>
+		Zum Starten des Spieles ENTER drücken.
+	</footer>
+	
 </html>

@@ -6,6 +6,7 @@ var zZeiteinheit;
 var zBallZaehler=0;
 var zLoopZaehler=0;
 var zGameOver;
+var zTasteGedrueckt=false;
 
 function init()
 {
@@ -30,15 +31,18 @@ function init()
 	zKanne=document.getElementById('kanne');
 	zFoto=document.getElementById('foto');
 	
+	document.addEventListener("keypress",tasteGedrueckt,false);
+	document.addEventListener("keyup",tasteLosgelassen,false);
 	window.addEventListener("storage",storage,false);
 	//document.addEventListener("click",mausKlick,false);
 	
-	restart();
+	//restart();
 	
 	zStressLevel=Number(localStorage.getItem("StressLevel"));
 	zWirtschaftlichkeitLevel=Number(localStorage.getItem("WirtschaftlichkeitLevel"));
 	zImageLevel=Number(localStorage.getItem("ImageLevel"));
 	zImage2Level=Number(localStorage.getItem("Image2Level"));
+	zGameOver=localStorage.getItem("GameOver");
 	
 	ladeBilder();
 	zeichneBild();
@@ -48,47 +52,39 @@ function init()
 	
 	zZeiteinheit=15000;
 	zMailCount=Number(localStorage.getItem("MailCount"));
-	starteAlltag();
-	starteSkandal();
+	if(localStorage.getItem("AlltagGestartet")=="false")
+	{starteAlltag();localStorage.setItem("AlltagGestartet","true");}
+	if(localStorage.getItem("SkandalGestartet")=="false")
+	{starteSkandal();localStorage.setItem("SkandalGestartet","true");}
+}
+
+function tasteGedrueckt(e)
+{
+	var key_id=e.keyCode || e.which;
+				
+	if(key_id==27&&zTasteGedrueckt==false)
+	{
+		location.href="Vorstellung.html";
+		e.preventDefault();
+	}
+	zTasteGedrueckt=true;
+}
+
+function tasteLosgelassen(e)
+{
+	zTasteGedrueckt=false;
 }
 
 function bildloop()
 {
-	if(zLoopZaehler<50)
-	{zeichneBild;
+	zeichneBild();
 	setTimeout(bildloop,1000);
-	zLoopZaehler++;}
 }
 
 function mouse(e)
 {
 	zMausX=e.pageX-document.getElementById('game_object').offsetLeft;
 	zMausY=e.pageY-document.getElementById('game_object').offsetTop;
-}
-
-function restart()
-{
-	for(var i=0;i<30;i++)
-	{
-		localStorage.setItem("Mail"+i+"gelesen","false");
-		localStorage.setItem("Mail"+i+"beantwortet","false");
-		localStorage.setItem("Dokument"+i+"gelesen","false");
-		localStorage.setItem("Dokument"+i+"beantwortet","false");
-	}
-	zStressLevel=1;
-	zImageLevel=1;
-	zWirtschaftlichkeitLevel=1;
-	zImage2Level=1;
-	zGameOver=false;
-	localStorage.setItem("StressLevel",zStressLevel);
-	localStorage.setItem("ImageLevel",zImageLevel);
-	localStorage.setItem("WirtschaftlichkeitLevel",zWirtschaftlichkeitLevel);
-	localStorage.setItem("Image2Level",zImage2Level);
-	localStorage.setItem("MailCount",0);
-	localStorage.setItem("DokumentCount",0);
-	localStorage.setItem("Position",0);
-	localStorage.setItem("AbzugImage2",0);
-	localStorage.setItem("Antwort",0);
 }
 
 function ladeBilder()
@@ -121,7 +117,7 @@ function zeichneBild()
 
 function zeichneBalken()
 {
-	if(zGameOver==false){
+	if(zGameOver=="false"){
 	pruefeLevel();
 	zMainCtx.clearRect(0,0,500,500);
 	zMainCtx.drawImage(zGesamtBild,250,0,100,50,zStressLevelX,zStressLevelY,zStressLevelMax,zBalkenHoehe);
@@ -153,21 +149,7 @@ function pruefeLevel()
 	{
 		zStressLevel=1.0;
 	}
-	if(zStressLevel>0.75)
-	{
-		//zStressLevelX=;
-		//zStressLevelY=;
-	}
-	else if(zStressLevel<0.25)
-	{
-		//zStressLevelX=;
-		//zStressLevelY=;
-	}
-	else
-	{
-		//zStressLevelX=;
-		//zStressLevelY=;
-	}
+	
 	
 	if(zImageLevel<0)
 	{
@@ -176,21 +158,6 @@ function pruefeLevel()
 	else if(zImageLevel>1)
 	{
 		zImageLevel=1.0;
-	}
-	if(zImageLevel>0.75)
-	{
-		//zImageLevelX=;
-		//zImageLevelY=;
-	}
-	else if(zImageLevel<0.25)
-	{
-		//zImageLevelX=;
-		//zImageLevelY=;
-	}
-	else
-	{
-		//zImageLevelX=;
-		//zImageLevelY=;
 	}
 	
 	if(zWirtschaftlichkeitLevel<0)
@@ -201,21 +168,6 @@ function pruefeLevel()
 	{
 		zWirtschaftlichkeitLevel=1.0;
 	}
-	if(zWirtschaftlichkeitLevel>0.75)
-	{
-		//zWirtschaftlichkeitLevelX=;
-		//zWirtschaftlichkeitLevelY=;
-	}
-	else if(zWirtschaftlichkeitLevel<0.25)
-	{
-		//zWirtschaftlichkeitLevelX=;
-		//zWirtschaftlichkeitLevelY=;
-	}
-	else
-	{
-		//zWirtschaftlichkeitLevelX=;
-		//zWirtschaftlichkeitLevelY=;
-	}
 	
 	if(zImage2Level<0)
 	{
@@ -225,28 +177,14 @@ function pruefeLevel()
 	{
 		zImage2Level=1.0;
 	}
-	if(zImage2Level>0.75)
-	{
-		//zImage2LevelX=;
-		//zImage2LevelY=;
-	}
-	else if(zImage2Level<0.25)
-	{
-		//zImage2LevelX=;
-		//zImage2LevelY=;
-	}
-	else
-	{
-		//zImage2LevelX=;
-		//zImage2LevelY=;
-	}
+	
 	
 	speichereWerte();
 }
 
 function klickIcon(pIcon)
 {
-	if(zGameOver==false)
+	if(zGameOver=="false")
 	{
 		if(pIcon==1)
 		{
@@ -302,7 +240,6 @@ function sendeMail(pNummer)
 	localStorage.setItem("Mail"+zMailCount,pNummer);
 	var newCount=Number(zMailCount)+1;
 	localStorage.setItem("MailCount",newCount);
-	//zMainCtx.drawImage(zKreisBild,0,0,100,100,480,580,25,25);
 	zMail.src='bilder/mailmitpunkt.png';
 }
 
@@ -312,7 +249,6 @@ function sendeDokument(pNummer)
 	localStorage.setItem("Dokument"+zDokumentCount,pNummer);
 	var newCount=Number(zDokumentCount)+1;
 	localStorage.setItem("DokumentCount",newCount);
-	//zMainCtx.drawImage(zKreisBild,0,0,100,100,420,380,25,25);
 	zDokumente.src='bilder/Dokumente2mitkreis.png';
 }
 
@@ -422,10 +358,10 @@ function pruefePosition(pPosition)
 	
 	else if(pPosition==22)
 	{
-		//restart();
 		mailwindow.close();
 		dokumentwindow.close();
-		zGameOver=true;
+		zGameOver="true";
+		localStorage.setItem("GameOver",zGameOver);
 		zMainCtx.clearRect(0,0,500,500);
 		zBall.style.visibility='hidden';
 		zFoto.style.visibility='hidden';
