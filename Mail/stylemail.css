@@ -80,6 +80,15 @@ aside {
 	color: #000000;
 	
 }
+.enter
+{
+	left:3%;
+	top: 276%;
+	position: absolute;
+	width: 10%;
+	height: 7%;
+	color: #000000;
+}
 
 div.text {
 	padding-top: 25px;
