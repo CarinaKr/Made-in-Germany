@@ -75,12 +75,14 @@ function zeigeDokument(pNummer)
 		zStressLevel+=0.3;
 		zImage2Level+=0.05;
 		zImageLevel+=0.2;
+		localStorage.setItem("Position",23);
 	}
 	else if(zOffeneDokument==4&&localStorage.getItem("Dokument"+4+"gelesen")=="false")//Skandal5
 	{
 		zStressLevel+=0.5;
 		zImage2Level+=0.15;
 		zImageLevel+=0.3;
+		localStorage.setItem("Position",23);
 	}
 	else if(zOffeneDokument==7&&localStorage.getItem("Dokument"+7+"gelesen")=="false")//Skandal8
 	{

@@ -69,7 +69,7 @@ function tasteGedrueckt(e)
 				
 	if(key_id==27&&zTasteGedrueckt==false)
 	{
-		location.href="Vorstellung.html";
+		enter();
 		e.preventDefault();
 	}
 	zTasteGedrueckt=true;
@@ -78,6 +78,11 @@ function tasteGedrueckt(e)
 function tasteLosgelassen(e)
 {
 	zTasteGedrueckt=false;
+}
+
+function enter()
+{
+	location.href="Vorstellung.html";
 }
 
 function bildloop()
@@ -416,6 +421,12 @@ function pruefePosition(pPosition)
 		zBall.style.visibility='hidden';
 		zFoto.style.visibility='hidden';
 		zKanne.style.visibility='hidden';
+		setTimeout(gameOver,zZeiteinheit);
+	}
+	
+	else if(pPosition==23)
+	{
+		setTimeout(gameOver,zZeiteinheit);
 	}
 }
 
@@ -425,6 +436,11 @@ function speichereWerte()
 	localStorage.setItem("ImageLevel",zImageLevel);
 	localStorage.setItem("WirtschaftlichkeitLevel",zWirtschaftlichkeitLevel);
 	localStorage.setItem("Image2Level",zImage2Level);
+}
+
+function gameOver()
+{
+	alert("Ende der Demoversion");
 }
 
 function loop()

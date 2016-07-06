@@ -305,6 +305,10 @@ function antwort(pAntwort)
 		{
 			localStorage.setItem("Position",22);
 		}
+		else if(pAntwort==1)
+		{
+			localStorage.setItem("Position",23);
+		}
 	}
 	
 	else if(zOffeneMail==10)//Skandal 11

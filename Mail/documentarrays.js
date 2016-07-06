@@ -9,24 +9,24 @@ zDokumentText[0]="";
 zDokumentText[3]="Wie ein Pressesprecher von Mauermetall gestern erklärte, ist es in einer "+
 					"firmeneigenen Erzmine zu einem Unglück gekommen, bei dem 41 Menschen starben "+
 					"und mehr als 200 verletzt wurden. Grund dafür waren Sicherheitslücken, "+
-					"für die Mauermetall verantwortlich war. Wie es dazu kommen konnte und warum "+
+					"für die Mayermetall verantwortlich war. Wie es dazu kommen konnte und warum "+
 					"die Hamburger Verantwortlichen nicht darüber in Kenntnis gesetzt wurden, "+
 					"dazu konnte er noch keine Auskunft geben. "+
-					"Aufklärung und Fürsorge so hieß es, stünden nun vor Ort im Vordergrund.";
+					"Aufklärung und Fürsorge, so hieß es, stünden nun vor Ort im Vordergrund.";
 zDokumentText[4]="Wie Wolfgang Maria Mayer uns gestern in einem Interview berichtete, ist es "+
 					"in einer firmeneigenen Erzmine zu einem Unglück gekommen, bei dem 41 Menschen "+
 					"starben und mehr als 200 verletzt wurden. Grund dafür waren Sicherheitslücken, "+
-					"für die Mauermetall verantwortlich war. Wie es dazu kommen konnte und "+
+					"für die Mayermetall verantwortlich war. Wie es dazu kommen konnte und "+
 					"warum die Hamburger Verantwortlichen nicht darüber in Kenntnis gesetzt "+
 					"wurden, dazu konnte er keine noch Auskunft geben. "+
-					"Aufklärung und Fürsorge so erklärte er, stünden nun vor Ort im Vordergrund. ";
+					"Aufklärung und Fürsorge, so erklärte er, stünden nun vor Ort im Vordergrund. ";
 zDokumentText[7]="Sicherheitslücken bei Mayermetall! Im Interview gab Wolfgang "+
  					"Maria Mayer nun zu, dass es signifikante Sicherheitsmängel "+
- 					"in der verunglückten Mine gabt. Wie es dazu kommen konnte und "+
+ 					"in der verunglückten Mine gab. Wie es dazu kommen konnte und "+
  					"warum die Hamburger Verantwortlichen nicht darüber in Kenntnis gesetzt "+
  					"wurden, dazu konnte er keine Auskunft geben. Beim Unglück im vergangenen "+
  					"Monat kamen 41 Menschen ums Leben, mehr als 200 wurden verletzt.";
-zDokumentText[9]="Mauermetall-Unglück weiterhin ungeklärt! Im Interview erklärte Wolfgang "+
+zDokumentText[9]="Mayermetall-Unglück weiterhin ungeklärt! Im Interview erklärte Wolfgang "+
 					"Maria Mayer nun, dass es keinerlei Sicherheitsmängel in der verunglückten "+
 					"Mine gegen habe. Nach ausgiebigen internen Untersuchungen bleibt die "+
 					"Unfallursache weiterhin ungeklärt. Beim Unglück im vergangenen Monat "+
@@ -37,7 +37,7 @@ zDokumentText[12]="Sicherheitslücken bei Mayermetall! Im Interview gab Wolfgang
  					"warum die Hamburger Verantwortlichen nicht darüber in Kenntnis gesetzt "+
  					"wurden, dazu konnte er keine Auskunft geben. Beim Unglück im vergangenen " +
  					"Monat kamen 41 Menschen ums Leben, mehr als 200 wurden verletzt.";
-zDokumentText[13]="Mauermetall-Unglück weiterhin ungeklärt! Im Interview erklärte Wolfgang "+
+zDokumentText[13]="Mayermetall-Unglück weiterhin ungeklärt! Im Interview erklärte Wolfgang "+
 					"Maria Mayer nun, dass es keinerlei Sicherheitsmängel in der verunglückten "+
 					"Mine gegen habe. Nach ausgiebigen internen Untersuchungen bleibt die "+
 					"Unfallursache weiterhin ungeklärt. Beim Unglück im vergangenen Monat "+

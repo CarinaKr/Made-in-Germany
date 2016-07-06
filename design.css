@@ -35,3 +35,13 @@
 		width:12%;
 		height:%;
 	}
+	
+	.enter
+{
+	left:3%;
+	top: 276%;
+	position: absolute;
+	width: 10%;
+	height: 7%;
+	color: #000000;
+}
