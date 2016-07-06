@@ -10,13 +10,13 @@ var zNachfrage=new Array();
 
 zAbsender[0]="PR@mayermetall.de";
 zAbsender[1]="Außendienst@mayermetall.de";
-zAbsender[2]="Zeitung@hamburg.de";
+zAbsender[2]="redaktion@Zeitung-des-Nordens.de";
 
-zAbsender[5]="Zeitung@hamburg.de";
+zAbsender[5]="redaktion@Stader.Morgenblatt.com";
 zAbsender[6]="PR@mayermetall.de";
 
 zAbsender[8]="HR@mayermetall.de";
-zAbsender[10]="Zeitung@hamburg.de";
+zAbsender[10]="redaktion@Hamburger-Abendpost.de";
 zAbsender[11]=zAbsender[6];
 zAbsender[15]="Aufsichtsrat@mayermetall.de";
 zAbsender[16]="Aufsichtsrat@mayermetall.de";
