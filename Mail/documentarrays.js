@@ -7,14 +7,14 @@ var zTitel=new Array(22);
 zDokumentText[0]="";
 
 zDokumentText[3]="Wie ein Pressesprecher von Mauermetall gestern erklärte, ist es in einer "+
-					"firmeneigenen Erzmine zu einem Unglück gekommen bei dem 41 Menschen starben "+
+					"firmeneigenen Erzmine zu einem Unglück gekommen, bei dem 41 Menschen starben "+
 					"und mehr als 200 verletzt wurden. Grund dafür waren Sicherheitslücken, "+
 					"für die Mauermetall verantwortlich war. Wie es dazu kommen konnte und warum "+
 					"die Hamburger Verantwortlichen nicht darüber in Kenntnis gesetzt wurden, "+
 					"dazu konnte er noch keine Auskunft geben. "+
 					"Aufklärung und Fürsorge so hieß es, stünden nun vor Ort im Vordergrund.";
 zDokumentText[4]="Wie Wolfgang Maria Mayer uns gestern in einem Interview berichtete, ist es "+
-					"in einer firmeneigenen Erzmine zu einem Unglück gekommen bei dem 41 Menschen "+
+					"in einer firmeneigenen Erzmine zu einem Unglück gekommen, bei dem 41 Menschen "+
 					"starben und mehr als 200 verletzt wurden. Grund dafür waren Sicherheitslücken, "+
 					"für die Mauermetall verantwortlich war. Wie es dazu kommen konnte und "+
 					"warum die Hamburger Verantwortlichen nicht darüber in Kenntnis gesetzt "+
