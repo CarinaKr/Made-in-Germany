@@ -125,16 +125,16 @@ function zeichneBalken()
 	if(zGameOver=="false"){
 	pruefeLevel();
 	zMainCtx.clearRect(0,0,500,500);
-	zMainCtx.drawImage(zGesamtBild,250,0,100,50,zStressLevelX,zStressLevelY,zStressLevelMax,zBalkenHoehe);
+	zMainCtx.drawImage(zGesamtBild,250,0,100,45,zStressLevelX,zStressLevelY,zStressLevelMax,zBalkenHoehe);
 	zMainCtx.drawImage(zSkalaBild,0,0,284*zStressLevel,29,zStressLevelX,zStressLevelY,zStressLevelMax*zStressLevel,zBalkenHoehe);
 	
-	zMainCtx.drawImage(zGesamtBild,250,0,100,50,zWirtschaftlichkeitLevelX,zWirtschaftlichkeitLevelY,zWirtschaftlichkeitLevelMax,zBalkenHoehe);
+	zMainCtx.drawImage(zGesamtBild,250,0,100,45,zWirtschaftlichkeitLevelX,zWirtschaftlichkeitLevelY,zWirtschaftlichkeitLevelMax,zBalkenHoehe);
 	zMainCtx.drawImage(zSkalaBild,0,0,284*zWirtschaftlichkeitLevel,29,zWirtschaftlichkeitLevelX,zWirtschaftlichkeitLevelY,zWirtschaftlichkeitLevelMax*zWirtschaftlichkeitLevel,zBalkenHoehe);
 	
-	zMainCtx.drawImage(zGesamtBild,250,0,100,50,zImageLevelX,zImageLevelY,zImageLevelMax,zBalkenHoehe);
+	zMainCtx.drawImage(zGesamtBild,250,0,100,45,zImageLevelX,zImageLevelY,zImageLevelMax,zBalkenHoehe);
 	zMainCtx.drawImage(zSkalaBild,0,0,284*zImageLevel,29,zImageLevelX,zImageLevelY,zImage2LevelMax*zImageLevel,zBalkenHoehe);
 	
-	zMainCtx.drawImage(zGesamtBild,250,0,100,50,zImage2LevelX,zImage2LevelY,zImage2LevelMax,zBalkenHoehe);
+	zMainCtx.drawImage(zGesamtBild,250,0,100,45,zImage2LevelX,zImage2LevelY,zImage2LevelMax,zBalkenHoehe);
 	zMainCtx.drawImage(zSkalaBild,0,0,284*zImage2Level,29,zImage2LevelX,zImage2LevelY,zImage2LevelMax*zImage2Level,zBalkenHoehe);
 	
 	zMainCtx.fillText("Stress",zStressLevelX+10,zStressLevelY+25);
