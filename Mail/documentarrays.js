@@ -6,8 +6,18 @@ var zTitel=new Array(22);
 /* was sind zDokumentText[3] und [4] - wann wird das gebraucht? */
 zDokumentText[0]="";
 
-zDokumentText[3]="Skandal 4: Ein Stellvertreter von Herr Mayer bestätigt Sicherheitslücken bei einem Interview.";
-zDokumentText[4]="Skandal 5: Herr Mayer gibt Sicherheitslücken bei einem persönlichen Interview zu.";
+zDokumentText[3]="Sicherheitslücken bei Mayermetall! Im Interview gab Wolfgang "+
+ 					"Maria Mayer nun zu, dass es signifikante Sicherheitsmängel "+
+ 					"in der verunglückten Mine gabt. Wie es dazu kommen konnte und "+
+ 					"warum die Hamburger Verantwortlichen nicht darüber in Kenntnis gesetzt "+
+ 					"wurden, dazu konnte er keine Auskunft geben. Beim Unglück im vergangenen " +
+ 					"Monat kamen 41 Menschen ums Leben, mehr als 200 wurden verletzt.";
+zDokumentText[4]="Sicherheitslücken bei Mayermetall! Im Interview gab ein Stellvertreter von Wolfgang "+
+ 					"Maria Mayer nun zu, dass es signifikante Sicherheitsmängel "+
+ 					"in der verunglückten Mine gabt. Wie es dazu kommen konnte und "+
+ 					"warum die Hamburger Verantwortlichen nicht darüber in Kenntnis gesetzt "+
+ 					"wurden, dazu konnte er keine Auskunft geben. Beim Unglück im vergangenen " +
+ 					"Monat kamen 41 Menschen ums Leben, mehr als 200 wurden verletzt.";
 
 zDokumentText[7]="Sicherheitslücken bei Mayermetall! Im Interview gab Wolfgang "+
  					"Maria Mayer nun zu, dass es signifikante Sicherheitsmängel "+
@@ -36,7 +46,55 @@ zDokumentText[14]="Mayermetall-Skandal! Nun ist klar: Die Sicherheitslücken war
 					"mehr als 200 wurden verletzte und Wolfgang Maria Mayer übernimmt nach "+
 					"wie vor keinerlei Verantwortung.";
 zDokumentText[19]="„Die Mayermetall GmbH freut sich außerordentlich verkünden zu dürfen, dass "+ 
-					"der langjährige Kollege Herr Heinz Bartelsmann zum 1. September die Stelle des Personalchefs übernehmen wird.“ "+
+					"der langjährige Kollege Herr Heinz Bartelsmann zum 1. September die Stelle des Personalchefs überneh
+					+
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					men wird.“ "+
 					"Mit diesen Worten verrät Pressesprecher Knoll, was Viele erwartet haben. Durch seine "+
 					"konsequente und sichere Leitung führte er seine Abteilung stets zu Wachstum und überzeugte mit langem Atem. "+
 					"Dem pensionierten Herrn Mutmacher wünscht die IndustrieMarkt-Redaktion einen lebhaften und ausgeglichenen Ruhestand! ";
